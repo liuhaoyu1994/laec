@@ -1,6 +1,164 @@
-<% provide(:title,"home") %>
-<body>
- <div class="cover">
-  <%= image_tag("15806.jpg") %>
+<% provide(:title,"Home") %>
+ <div class = "welcome">
+  <div id="blank"></div>
+  <div class= "welcome_title">
+    <%= image_tag("MechLabs_15086.jpg", :class => "welcome_cover")%>
+    <div class="welcome_text col-5">
+     <p>Welcome To Laboratory for<br>Alternative Energy Conversion</p>
+     <div id="white_bar"></div>
+    </div>
+    <div class="jump col-12">
+        <%= image_tag("arrow.svg", :class => "jump_arrow circle", :id=>"jump")%>
+    </div>
+  </div>
+
+  <!---first--->
+  <div class = "research_brief col-12", id = "research">
+   <div class = "topic">
+    <p>Research</p>
+   </div>
+   <div class = "col-1"></div>
+   <div class = "introduction col-10">
+    <p>The LAEC seeks to understand and solve fundamental problems at multiscale levels to improve energy conversion efficiency.</p>
+    <div class = "thumbs_set">
+     <div class = "thumb">
+      <%= image_tag("ac-service-crop-u729.jpg")%>
+      <div class = "overlay">
+       <div class = "text">
+        Green AC-R in Service Vehicles
+       </div>
+      </div>
+     </div>
+     <div class = "thumb">
+      <%= image_tag("ec-crop-u762.jpg")%>
+      <div class = "overlay">
+       <div class = "text">
+        Electronics Cooling
+       </div>
+      </div>
+     </div>
+     <div class = "thumb">
+      <%= image_tag("adsorp test bed2-crop-u772.jpg")%>
+      <div class = "overlay">
+       <div class = "text">
+        Adsorption Cooling
+       </div>
+      </div>
+     </div>
+     <div class = "thumb">
+      <%= image_tag("transport_properties_of_pem_fuel_cell_materials-crop-u782")%>
+      <div class = "overlay">
+       <div class = "text">
+        PEM Fuel Cells
+       </div>
+      </div>
+     </div>
+     <div class = "thumb">
+      <%= image_tag("heating_ventilation_-_air_conditioning_(hvac)-crop-u792.jpg")%>
+      <div class = "overlay">
+       <div class = "text">
+        HVAC
+       </div>
+      </div>
+     </div>
+     <div class = "thumb">
+      <%= image_tag("mechlabs_15 044-crop-u802.jpg")%>
+      <div class = "overlay">
+       <div class = "text">
+        Insulation
+       </div>
+      </div>
+     </div>
+     <div class = "thumb square1">
+      <%= image_tag("thermal_management_batteries_photo-crop-u812")%>
+      <div class = "overlay">
+       <div class = "text">
+        Microstructured Materials
+       </div>
+      </div>
+     </div>
+     <div class = "thumb square2">
+      <%= image_tag("hybrid_news-crop-u825.jpg")%>
+      <div class = "overlay">
+       <div class = "text">
+        Green AC-R in Service Vehicles
+       </div>
+      </div>
+     </div>
+     <div class = "thumb square3">
+     <div class = "overlay2">
+      <div class = "text">
+       Read More
+      </div>
+     </div>
+    </div>
+    </div>
+   </div>
+  </div>
+  
+  <!------Second----->
+  <div class = "service_brief col-12">
+   <div class = "topic", id = "service">
+    <p>Service</p>
+   </div>
+   <div class = "col-1"></div>
+   <div class = "introduction col-10">
+    <p>The LAEC provides analysis, testing, and material characterization services in the general area of energy systems.</p>
+   <div class = "col-6">
+    <%= image_tag("tps-crop-u999.jpg")%>
+   </div>
+   <div class = "bullet col-5">
+    <ul>
+     <li>Battery Services</li>
+     <li>Thermophysical properties measurements (porous media, polymers, powders, pastes, liquids and solids)</li>
+     <li>Heat sinks and heat exchangers</li>
+     <li>Electronic cooling and enclosure design</li>
+     <li>Mechanical testing</li>
+     <li>Air-conditioning and refrigeration services</li>
+    </ul>
+    <div class = "col-6"></div>
+    <div class = "link_button">
+     <span>Read More &rarr;</span>
+    </div>
+   </div>
+ 
+   </div>
+  </div>
+  
+   <!------Third----->
+  <div class = "aboutus_brief col-12">
+   <div class = "topic", id = "service">
+    <p>About Us</p>
+   </div>
+   <div class = "col-1"></div>
+   <div class = "namecard col-10">
+     <div class = "card_pic col-4">
+      <%= image_tag("majid bahrami 010.jpg")%>
+     </div>
+     <div class = "card_text">
+      <div class = "card_title">
+        <p>Principle Investigator</p>
+      </div>
+      <div class = "card_name">
+       <p>Majid Bahrami, PhD, P.Eng.</p>
+      </div>
+      <div class = "card_detail">
+       <p>Professor<br>
+          Canada Research Chair in Alternative Energy Conversion Systems<br>
+          Member: AIAA, ASME Fellow, SAE, ASHRAE<br><br>
+           
+          Faculty of Applied Science<br>
+          School of Mechatronic Systems Engineering<br>
+          Simon Fraser University<br>
+          250-13450 102 Avenue<br>
+          Surrey, BC, V3T 0A3, Canada<br><br>
+           
+          Office: Galleria 4, Room 4164<br>
+          Laboratory: Galleria 4, Room 4280<br>
+          Tel.: +1 (778) 782-8538<br>
+          Fax: +1 (778) 782-7514<br>
+          e-mail: mbahrami@sfu. ca</p>
+      </div>
+     </div>
+   </div>
  </div>
-</body>

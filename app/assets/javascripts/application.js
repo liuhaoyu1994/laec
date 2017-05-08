@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+    var target = $("#research");
+    $("#jump").click(function(event) {
+            $(document.body).animate({
+                scrollTop: target.offset().top
+            },{easing: "swing", duration: 1000});
+    });
+
+});

@@ -3,12 +3,27 @@
 <head>
   <title><%= yield(:title) %> | LAEC</title>
   <title>Laboratory for Alternative Energy Conversion</title>
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <div class="container-fluid">
+      <header class="navbar navbar-fixed-top navbar-default">
+        <nav>
+          <%= link_to image_tag("logo_blue_text_web (1).jpg", alt: "Logo", id:"logo"),
+                      root_path %>            
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", root_path%></li>
+            <li><%= link_to "Research", static_pages_research_path%></li>
+            <li><%= link_to "Service", static_pages_service_path%></li>
+            <li><%= link_to "About", static_pages_aboutus_path%></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
 <%= yield %>
 

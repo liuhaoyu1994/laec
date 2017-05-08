@@ -1,3 +1,218 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#blank{
+  height: 7em;
+  width:100%;
+}
+
+.welcome_title{
+  position: relative;
+}
+
+.welcome_cover{
+  position:relative;
+  width:100%;
+}
+
+.welcome_text{
+  position:absolute;
+  font-size: 2.8vw;
+  top:31vw;
+  color:white;
+  line-height:1.3;
+  text-align:right;
+}
+
+#white_bar{
+  position:relative;
+  top:-9vw;
+  width: 100%;
+  height: 0.5vw;
+  background-color:white;
+}
+
+.research_brief{
+  position:relative;
+  padding-top: 1000px ;
+}
+
+.topic{
+  padding-top:8vw;
+  font-weight: bold;
+  text-align:center;
+  font-size: 4vw;
+  position:relative;
+  text-align: center;
+  width: 100%;
+  margin:auto;
+}
+
+.service_brief{
+  position:relative;
+}
+
+.jump{
+  position:absolute;
+  top:39vw;
+  width:100%;
+  margin:auto;
+  z-index: 100;
+}
+
+.jump_arrow {
+  position:relative;
+  left:47.5%;
+  margin: auto;
+  width: 5%;  
+  cursor: pointer; 
+
+}
+
+.circle{
+    background-color:#006bb3;
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.6); 
+    border-radius:100px; 
+    transition: .3s ease;
+
+}
+
+.circle:hover{
+    transform-origin:center center;
+    width:5.2%;
+    background-color:#006bb3;
+    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.6); 
+    border-radius:100px; 
+}
+
+.introduction{
+  font-size:1.5vw;
+}
+
+.thumb_set{
+  display:block;
+  margin: auto;
+  width: 100%;
+}
+
+.thumb{
+  float:left;
+  position:relative;
+  width:18%;
+  height: 14.3vw;
+  margin:0.5vw;
+  background-color:white;
+}
+
+.thumb > img{
+  width:100%;
+}
+
+.square1{
+  padding-top: 2.53vw;
+  padding-bottom: 2.53vw;
+}
+
+.square2{
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+}
+
+
+
+.overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,107,179,0.8);
+  width: 100%;
+  overflow: hidden;
+  height:0%;
+  transition: .5s ease;
+
+}
+
+.overlay2 {
+  position: absolute;
+  bottom: 0;
+  height:100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,107,179,0.8);
+  width: 100%;
+  overflow: hidden;
+  transition: .5s ease;
+
+}
+
+.thumb:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  text-align:center;
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.service_brief{
+  background-color:WhiteSmoke;
+}
+
+.service_brief img{
+  width:100%;
+  height: auto;
+}
+
+.bullet{
+  line-height:1.8;
+  list-style-position: outside;
+}
+
+.card_pic >img{
+width: 100%;
+}
+
+.card_title{
+  font-size:1.5vw;
+  font-weight:bold;
+}
+
+.card_name{
+  font-size:3vw;
+  font-weight:bold;
+}
+
+.card_detail{
+  font-size: 1.4vw;
+  line-height: 1.4;
+}
+
+.card_text{
+  position:relative;
+  left: 2vw;
+  top: 0.5vw;
+}
+
+.namecard{
+  background-color:white;
+    box-shadow: 0px 0px 6px 3px rgba(0,0,0,0.4); 
+}
+
+.link_button{
+  margin-left:21vw;
+  padding-left:0.8vw;
+  border-style:solid;
+  border-color:#00A2D7;
+  color:#00A2D7;
+}
