@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  get '/signup', to: 'users#new'
+
   resources :users
-  get 'static_pages/home'
+  get '/home', to: 'static_pages#home'
 
-  get 'static_pages/research'
+  get '/research', to: 'static_pages#research'
 
-  get 'static_pages/service'
+  get '/service', to: 'static_pages#service'
 
-  get 'static_pages/aboutus'
+  get '/about', to:'static_pages#aboutus'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

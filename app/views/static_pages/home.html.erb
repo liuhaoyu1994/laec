@@ -1,16 +1,14 @@
 <% provide(:title,"Home") %>
  <div class = "welcome">
-  <div id="blank"></div>
-  <div class= "welcome_title">
-    <%= image_tag("MechLabs_15086.jpg", :class => "welcome_cover")%>
-    <div class="welcome_text col-5">
+  <div class = "col-1"></div>
+  <div class = "welcome_cover">
+   <%= image_tag("17741.jpg")%>
+   <div class="welcome_text col-5">
      <p>Welcome To Laboratory for<br>Alternative Energy Conversion</p>
-     <div id="white_bar"></div>
-    </div>
-    <div class="jump col-12">
-        <%= image_tag("arrow.svg", :class => "jump_arrow circle", :id=>"jump")%>
-    </div>
+   </div>
   </div>
+    
+     <%= image_tag("SFU_StdBlock-Horz_Pos_RGB.jpg", alt: "SFU_Logo", id:"logo2")%>
 
   <!---first--->
   <div class = "research_brief col-12", id = "research">
@@ -116,7 +114,6 @@
      <li>Mechanical testing</li>
      <li>Air-conditioning and refrigeration services</li>
     </ul>
-    <div class = "col-6"></div>
     <div class = "link_button">
      <span>Read More &rarr;</span>
     </div>
@@ -161,4 +158,6 @@
       </div>
      </div>
    </div>
+   
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
  </div>

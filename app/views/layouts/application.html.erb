@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) %> | LAEC</title>
+  <title><%= full_title(yield(:title)) %></title>
   <title>Laboratory for Alternative Energy Conversion</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -12,18 +12,34 @@
 <body>
   <div class="container-fluid">
       <header class="navbar navbar-fixed-top navbar-default">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Stay</a></li>
+                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in">Close</a></li>
+                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in">Close</a></li>
+              </ul>
+          </div>
         <nav>
-          <%= link_to image_tag("logo_blue_text_web (1).jpg", alt: "Logo", id:"logo"),
-                      root_path %>            
+          <%= link_to image_tag("LOGO_blue_text_web.jpg", alt: "Logo", id:"logo"),
+                      root_path %>
+
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", root_path%></li>
-            <li><%= link_to "Research", static_pages_research_path%></li>
-            <li><%= link_to "Service", static_pages_service_path%></li>
-            <li><%= link_to "About", static_pages_aboutus_path%></li>
+          
+            <li class="<%= 'active' if current_page?('/home') || current_page?(root_path) %>"><%= link_to "Home", root_path%></li>
+            <li class="<%= 'active' if current_page?('/research') %>"><%= link_to "Research", research_path%></li>
+            <li class="<%= 'active' if current_page?('/service') %>"><%= link_to "Service", service_path%></li>
+            <li class="<%= 'active' if current_page?('/about') %>"><%= link_to "About", about_path%></li>
           </ul>
         </nav>
       </div>
     </header>
+  <div id="blank"></div>
 
 <%= yield %>
 

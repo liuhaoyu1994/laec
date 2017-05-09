@@ -14,8 +14,13 @@
  *= require_self
  */
 
+@font-face {
+  font-family:"din";
+  src: url(din1451alt.ttf) format("truetype");
+} 
+
 body {
-    font-family: "Trebuchet MS", Bold, sans-serif;
+    font-family:"din";
     background-color:  #d9d9d9;
 }
 
