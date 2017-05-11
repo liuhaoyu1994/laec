@@ -1,30 +1,49 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@media screen and (min-width: 800px) {
-#logo {
-  height:6.5vw;
-  margin-left: 2vw;
-  margin-top:0.5vw;
+
+
+@media screen and (min-width: 770px) {
+  
+.nav-up {
+  #logo2 {
+    display:none;
+}   
+  #logo {
+    display:none;
+  }   
 }
 
+#logo {
+  margin-top: 0.5em;
+  margin-left: 1em;
+  height:6.5vw;
+  min-height:5em;
+}
+
+#logo2 {
+  height:7vw;
+  min-height:5em;
+
+}
 
 .navbar{
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .navbar ul{
+  position:absolute;
   width:50%;
   padding-right:4vw;
+  right:0;
+  bottom:0;
 }
 
 
 .navbar-default .navbar-nav > li{
   width:25%;
-  font-size:1.4vw;
+  font-size:1.3em;
   font-weight:bold;
-  padding-top:2vw;
-  padding-bottom:2vw;
   text-align:center;
   transition: .3s ease;
 }
@@ -42,6 +61,7 @@
 }
 
 .navbar-default .navbar-nav > li > a{
+
   color: #a6192e;
 }
 
@@ -72,15 +92,110 @@
 }
 }
 
-.navbar ul{
-  padding-right:4vw;
+
+@media screen and (max-width: 769px) {
+
+.nav-up{
+  top:-15vw;
 }
 
+.navbar-toggle {
+  display: block;
+}
 
+.navbar{
+    transition: .2s ease;
+
+}
+
+.navbar-collapse.collapse {
+    display: none!important;
+
+}
+
+.navbar-collapse.collapse ul{
+}
+
+.navbar-collapse.collapsing ul{
+}
+
+.collapse.in{
+  	display:block !important;
+}
+	
+	
+.collapse.in ul{
+}
+	
+	
+#logo {
+  display: none;
+}
+
+#logo2 {
+  display: none;
+  
+}
+
+.navbar{
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.collapse.in{
+}
+
+.navbar .ul{
+  
+  float:left;
+}
 .navbar-default .navbar-nav > li{
+  font-size:1.3em;
   font-weight:bold;
-  padding-top:1.1vw;
-  padding-bottom:1.2vw;
   text-align:center;
   transition: .3s ease;
+  width:90%;
+}
+
+.navbar-default .navbar-nav > li:hover{
+  background-color: #a6192e;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.navbar-default .navbar-nav .active{
+  background-color: #a6192e;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.navbar-default .navbar-nav > li > a{
+
+  color: #a6192e;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+    background-color:rgba(0,0,0,0);
+
+  color: white;
+}
+
+.navbar-default .navbar-nav .active a{
+  background-color:rgba(0,0,0,0);
+  color: white;
+}
+
+.navbar-default .navbar-nav > .active > a:hover{
+  background-color:rgba(0,0,0,0);
+  color: white;
+}
+
+.navbar-default .navbar-nav > .active > a:focus{
+  background-color:rgba(0,0,0,0);
+  color: white;
+}
+
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
 }
