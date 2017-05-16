@@ -3,6 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @media screen and (min-width: 770px) {
 
+#logo5{
+  display:none;
+}
+#logo6{
+  display:none;
+}
+
 #blank{
   height: 10vw;
   width:100%;
@@ -24,7 +31,7 @@
   color:white;
   text-align:left;
   background-color:rgba(0,0,0,0.5);
-  padding:0;
+  padding-left:1vw;
 }
 
 .research_brief{
@@ -40,13 +47,23 @@
   width: 100%;
 }
 
-.introduction{
-  position:relative;
-  font-size:1em;
-  text-align:center;
+.service_brief .topic
+{
+  padding-top:1em;
 }
 
-.thumb_set{
+.aboutus_brief .topic
+{
+  padding-top:1em;
+}
+
+.introduction{
+  position:relative;
+  font-size:2em;
+}
+
+.thumbs_set{
+  position:relative;
   display:block;
   margin: auto;
   width: 100%;
@@ -123,8 +140,9 @@
 }
 
 .service_brief{
-  position:relative;
   background-color:WhiteSmoke;
+  margin-top:5vw;
+  padding-bottom:2em;
 }
 
 .service_brief img{
@@ -137,42 +155,48 @@
   list-style-position: outside;
 }
 
+.card_pic {
+  overflow:hidden;
+  padding-bottom:2em;
+}
+
 .card_pic >img{
-width: 100%;
+  padding-top:1em;
+  margin-top:1em;
 }
 
 .card_title{
-  font-size:1.5vw;
+  padding-top:1.5em;
+  font-size:1.5em;
   font-weight:bold;
 }
 
 .card_name{
-  font-size:3vw;
+  font-size:2em;
   font-weight:bold;
 }
 
 .card_detail{
-  font-size: 1.4vw;
-  line-height: 1.4;
+  padding-bottom:0.2em;
+  font-size: 1.5em;
+  line-height: 1.2;
 }
 
 .card_text{
-  left: 2vw;
   top: 0.5vw;
 }
 
 .namecard{
-  background-color:white;
-    box-shadow: 0px 0px 6px 3px rgba(0,0,0,0.4); 
+  background-color:whitesmoke;
+  box-shadow: 0px 0px 6px 3px rgba(0,0,0,0.4); 
+  overflow:hidden;
+  padding-bottom:1em;
 }
 
 .link_button{
-  margin-left:0.8vw;
-  width:35%;
-  padding-left:0.8vw;
-  border-style:solid;
-  border-color:#a6192e;
   color:#a6192e;
+  text-decoration: underline;
+
 }
 
 .detail_card{
@@ -189,8 +213,16 @@ width: 100%;
   
 }
 }
-
 @media screen and (max-width: 769px) {
+  
+#logo5{
+  width:30%;
+  margin-left:0.5em;
+}
+#logo6{
+  width:25%;
+}
+
 
 #blank{
   height: 6em;
@@ -209,17 +241,17 @@ width: 100%;
   position:relative;
   height:8vw;
   top:-8vw;
-  font-size: 2.8vw;
+  font-size: 3.5vw;
   color:white;
-  text-align:left;
+  text-align:center;
   background-color:rgba(0,0,0,0.5);
   padding:0;
+  padding-left:1vw;
 }
 
 
 
 .topic{
-  padding-top:8vw;
   font-weight: bold;
   text-align:center;
   font-size: 3em;
@@ -228,6 +260,19 @@ width: 100%;
   width: 100%;
   margin:auto;
 }
+
+
+
+.service_brief .topic
+{
+  padding-top:1em;
+}
+
+.aboutus_brief .topic
+{
+  padding-top:1em;
+}
+
 
 
 .jump{
@@ -265,23 +310,23 @@ width: 100%;
 
 .introduction{
   position:relative;
-  font-size:1em;
+  font-size:1.5em;
   text-align:center;
 }
 
-.thumbs_set{
-  position:relative;
-  display:block;
+.thumb_set{
+  display: block;
   margin: auto;
   width: 100%;
 }
 
 .thumb{
-  float:left;
   position:relative;
-  height: 20vw;
+  display:inline-block;
   margin:0.5vw;
   background-color:white;
+  width:20vw;
+  height: 20vw;
 }
 
 .thumb > img{
@@ -289,17 +334,21 @@ width: 100%;
 }
 
 .square1{
+  position:relative;
   padding-top: 2.53vw;
   padding-bottom: 2.53vw;
 }
 
 .square2{
+  position:relative;
   padding-top: 2vw;
   padding-bottom: 2vw;
-  
 }
 
-
+.square3{
+  position:relative;
+  top:-2vw;
+}
 
 .overlay {
   position: absolute;
@@ -347,37 +396,53 @@ width: 100%;
 
 .service_brief{
   background-color:WhiteSmoke;
+    margin-top:5vw;
+
 }
 
 .service_brief img{
   width:100%;
   height: auto;
 }
-
 .bullet{
+  font-size:1em;
   line-height:1.46;
   list-style-position: outside;
   text-align:left;
 }
 
+.bullet li{
+  font-size:0.7em;
+}
+
+.card_pic{
+  width:100%;
+}
+
 .card_pic >img{
-width: 100%;
+  padding-top:1em;
+  margin-top:1em;
+  width: 30%;
+  min-width:10em;
 }
 
 .card_title{
-  font-size:1.5vw;
+  padding-top:1em;
+  font-size:1em;
   font-weight:bold;
 }
 
 .card_name{
-  font-size:3vw;
+  font-size:1.5em;
   font-weight:bold;
 }
 
 .card_detail{
-  font-size: 1.4vw;
-  line-height: 1.4;
+  padding-bottom:0.2em;
+  font-size: 1em;
+  line-height: 1.2;
 }
+
 
 .card_text{
   left: 2vw;
@@ -390,12 +455,9 @@ width: 100%;
 }
 
 .link_button{
-  margin-left:0.8vw;
-  width:35%;
-  padding-left:0.8vw;
-  border-style:solid;
-  border-color:#a6192e;
+  text-decoration: underline;
   color:#a6192e;
+
 }
 
 .detail_card{
@@ -412,3 +474,5 @@ width: 100%;
   
 }
 }
+
+

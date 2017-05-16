@@ -14,16 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function(){
-    var target = $("#research");
-    $("#jump").click(function(event) {
-            $(document.body).animate({
-                scrollTop: target.offset().top
-            },{easing: "swing", duration: 1000});
-    });
-
-});
-
 var didScroll;
 var lastScrollTop = 0;
 var delta = 5;
@@ -53,10 +43,14 @@ $(document).ready(function(){
         $('header').removeClass('nav-down').addClass('nav-up');
     } else {
         // Scroll Up
-        if(st + $(window).height() < $(document).height()) {
+        if(st + $(window).height() < $(document).height() && st < 15) {
             $('header').removeClass('nav-up').addClass('nav-down');
         }
     }
     lastScrollTop = st;
     }
 });
+
+function dropdown(){
+    document.getElementById("Green").classList.toggle("show");
+}

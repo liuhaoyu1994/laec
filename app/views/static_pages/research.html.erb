@@ -1,24 +1,168 @@
-<% provide(:title,"research") %>
-  <div class = "col-1"></div>
+<% provide(:title,"Research") %>
+<div class="side-nav">
+            <ul class="side-list">
+              <li><%= link_to "Green AC-R in Service Vehicles", research_path(anchor:"Green")%></li>
+              <li><%= link_to "Electronics Cooling", research_path(anchor:"Electronics")%></li>
+              <li><%= link_to "Adsorption Cooling", research_path(anchor:"Adsorption")%></li>
+              <li><%= link_to "PEM Fuel Cells", research_path(anchor:"PEM")%></li>
+              <li><%= link_to "HVAC", research_path(anchor:"HVAC")%></li>
+              <li><%= link_to "Insulation", research_path(anchor:"Insulation")%></li>
+              <li><%= link_to "Battery Thermal Management", research_path(anchor:"Battery")%></li>
+              <li><%= link_to "Microstructured Materialss", research_path(anchor:"Microstructured")%></li>
 
-<div class = "term_detail col-10">
+      
+
+            </ul>
+</div>
+<div class = "term_detail">
   <div class = "topic">Research</div>
-  <div class = "introduction">
-    <p>LAEC seeks to understand and solve fundamental problems at multiscale levels to improve energy conversion efficiency in devices such as compact heat exchangers, fuel cells, batteries, and refrigeration systems.  The following highlights some of the current research projects in our group.
-  </p>
-  </div>
-  <div class = "namecard">
-     <div class = "card_pic col-3">
-      <%= image_tag("ac-service-crop-u729.jpg")%>
-     </div>
-     <div class = "card_text">
-      <div class = "card_title">
-        <p>Air Conditioning and Refrigeration Systems for Service Vehicles</p>
+    <div class = "detail_intro">
+      <p>LAEC seeks to understand and solve fundamental problems at multiscale levels to improve energy conversion efficiency in devices such as compact heat exchangers, fuel cells, batteries, and refrigeration systems.  The following highlights some of the current research projects in our group.</p>
+    </div>
+  <div class = "list">
+      
+    <div class = "content container-fluid">
+        <div class = "content_title" onclick="dropdown()">
+          <p>Air Conditioning and Refrigeration Systems for Service Vehicles</p>
+        </div>
+     <div class = "content-text dropdown_content", id="Green">
+       <div class = "content_info content_pic">
+        <%= image_tag("AC-Service.png")%>
+       </div>
+        <div class = "content_info content_detail">
+            <p>This research program is working to eliminate the need for idling to provide cooling for the sleeper section in semi trucks and improve the overall efficiency of air conditioning and refrigeration (A/C-R) systems in service vehicles, including long-haul trucks, reefers and buses.  The project is a collaborative research program between Simon Fraser University and the University of Waterloo, and enjoys the full support and close collaboration of two industrial partners: Cool-It and Saputo Dairy Products Canada.The long-term goal is to improve the fuel economy of service vehicles through the development of novel and efficient thermal management systems that use regenerative auxiliary power systems (RAPS) or engine waste heat to operate the A/C-R systems.</p>    
+        </div>
       </div>
-      <div class = "card_detail">
-             <p>This research program is working to eliminate the need for idling to provide cooling for the sleeper section in semi trucks and improve the overall efficiency of air conditioning and refrigeration (A/C-R) systems in service vehicles, including long-haul trucks, reefers and buses.  The project is a collaborative research program between Simon Fraser University and the University of Waterloo, and enjoys the full support and close collaboration of two industrial partners: Cool-It and Saputo Dairy Products Canada.  The long-term goal is to improve the fuel economy of service vehicles through the development of novel and efficient thermal management systems that use regenerative auxiliary power systems (RAPS) or engine waste heat to operate the A/C-R systems.
+    </div>
+    
+    <!--2-->
+    <div class = "content container-fluid", id="Electronics">
+        <div class = "content_title", onclick="dropdown()">
+          <p>Cooling Solutions for High Power Electronics</p>
+        </div>
+       
+       <div class = "content-text dropdown_content">
+        <div class = "content_pic">
+        <%= image_tag("EC.png")%>
+       </div>
+        <div class = "content_detail">
+                 <p>The telecommunication and power electronics industries continue to 
+                 develop compact systems with increasing power density and thermal load 
+                 that requires effective, efficient cooling solutions. The LAEC is engaged 
+                 in the design and demonstration of next-generation sustainable thermal m
+                 anagement strategies that maintain device operating temperatures while re
+                 ducing the parasitic power used by conventional active cooling systems. Thes
+                 e solutions, featuring heat pipes and novel efficient naturally-cooled heat si
+                 nks, significantly improve system reliability while also reducing parasitic powe
+                 r draw, noise, and operating costs for cooling high power electronics. The 
+                 industrial partner on this project, Alpha Technologies Ltd., is an established 
+                 leader in the area of power conversion and designs, manufactures, installs, 
+                 and services powering solutions for worldwide telecom, Cable TV (Canada), tr
+                 affic, security, medical, industrial, and renewable energy industries.
+                  </p>
+        </div>
+      </div>
+    </div>
+    <!-- 3-->
+    <div class = "content container-fluid", id="Adsorption">
+        <div class = "content_title", onclick="dropdown()">
+          <p>Adsorption Cooling System for Automotive Application</p>
+        </div>
+       
+       <div class = "content-text dropdown_content">
+        <div class = "content_pic">
+        <%= image_tag("Adsorp Test Bed2.png")%>
+       </div>
+        <div class = "content_detail">
+                 <p>Vapour compression refrigeration and air-conditioning systems consume a significant amount of electricity and use hydrofluorocarbon refrigerants, which are known for their environmental impact as greenhouse gases. In heat-driven adsorption systems an environmentally-friendly refrigerant, e.g. water, is adsorbed by a porous material to create evaporative cooling. The adsorber bed is thermally regenerated, and therefore the cooling system can operate using waste heat (e.g. engine exhaust) or solar thermal energy.
+
+LAEC research focuses on the critical challenges in this field, including the development of novel composite materials with high adsorption capacity, and high mass and thermal transport properties. Promising materials are tested in custom-built modular prototype adsorption systems that are further utilized to study adsorber bed design, evaporator and condenser heat exchanger design, and cycle parameters for the adsorption and regeneration processes.
+                  </p>
+        </div>
+      </div>
+    </div>
+
+<!--4-->
+    <div class = "content container-fluid", id="PEM">
+        <div class = "content_title", onclick="dropdown()">
+          <p>Transport Properties of PEM Fuel Cell Materials</p>
+        </div>
+       <div class = "content-text dropdown_content">
+        <div class = "content_pic">
+        <%= image_tag("Transport_Properties_of_PEM_Fuel_Cell_Materials.jpg")%>
+       </div>
+        <div class = "content_detail">
+                 <p>The performance of a polymer electrolyte membrane (PEM) fuel cell relies on the effectiveness of the transport of heat, mass, and charge in a membrane-elctrode assembly (MEA). Accurate information about flow, temperature field, and associated heat transfer rates are particularly important to performance optimization and devising heat and water management strategies in hydrogen fuel cells.
+
+The LAEC and the Automotive Fuel Cell Corporation (AFCC) are engaged in collaborative research focused on analytical modeling and experimental investigation of the transport properties of micro/nano stuctured fuel cell components. Of great interest is understanding the effects of transient and cyclic operating conditions such as compressive loads, relative humidity, and gas pressure on the properties such as thermal conductivity, diffusivity, permeability, and contact resistance in MEA layers.
+                  </p>
+        </div>
+      </div>
+    </div>
+    
+    <!--5-->
+    <div class = "content container-fluid", id="HVAC">
+        <div class = "content_title", onclick="dropdown()">
+          <p>Heating Ventilation & Air Conditioning (HVAC)</p>
+        </div>
+
+       <div class = "content-text dropdown_content">
+       <div class = "content_pic">
+        <%= image_tag("Heating_Ventilation_&_Air_Conditioning_(HVAC).jpg")%>
+       </div>
+        <div class = "content_detail">
+                 <p>Air conditioning is a critical system for HEVs, as it is the second most energy consuming system after the electric motor.
 </p>
+        </div>
       </div>
-     </div>
-  </div>
+    </div>
+    
+    <!--6-->
+    <div class = "content container-fluid", id="Insulation">
+        <div class = "content_title",onclick="dropdown()">
+          <p>Insulation Materials</p>
+        </div>
+       
+       <div class = "content-text dropdown_content">
+        <div class = "content_pic">
+        <%= image_tag("MechLabs_15 044.JPG")%>
+       </div>
+        <div class = "content_detail">
+                 <p>This research program is focused on improving insulation technology, which is one of the most important aspects for saving energy that is otherwise wasted in the heating and cooling of enclosures, such as buildings, freezers, and reefers. The project is a collaborative research project between LAEC at Simon Fraser University and industrial partners Cool-It and Saputo. The long-term goal is to improve the praticality of aerogel composites by boosting their strength and lowering their implementation costs.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!--7-->
+    <div class = "content container-fluid", id="Battery">
+        <div class = "content_title",onclick="dropdown()">
+          <p>Thermal Management of Emerging Batteries</p>
+        </div>
+       <div class = "content-text dropdown_content">
+ <div class = "content_pic">
+        <%= image_tag("thermal_management_batteries_photo")%>
+       </div>
+        <div class = "content_detail">
+                 <p>Thermal management is essential for safe and efficient operation of battery systems, especially for high-capacity polymer lithium-ion (Li-ion) batteries.
+ </p>
+        </div>
+      </div>
+    </div>
+    
+    <!--8-->
+    <div class = "content container-fluid", id="Microstructured">
+         <div class = "content_title",onclick="dropdown()">
+          <p>Transport Phenomena in Microchannels, Microstructured Materials, and Porous Media</p>
+        </div>
+
+       <div class = "content-text dropdown_content">
+       <div class = "content_pic">
+        <%= image_tag("Hybrid_news.jpg")%>
+       </div>
+        <div class = "content_detail">
+                 <p>Microstructured and porous materials are involved in a wide range of applications including composite fabrication, filtration, compact heat exchangers, fuel cell technology, and tissue engineering to name a few.</p>
+        </div>
+      </div>
+    </div>
+</div>
 </div>

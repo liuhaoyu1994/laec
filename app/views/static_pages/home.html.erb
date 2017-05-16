@@ -1,5 +1,4 @@
 <% provide(:title,"Home") %>
- <div class = "welcome">
   <div class = "welcome_cover">
    <%= image_tag("17741.jpg")%>
    <div class="welcome_text">
@@ -9,14 +8,16 @@
 
 
   <!---first--->
-  <div class = "col-md-1"></div>
-  <div class = "research_brief col-md-12", id = "research">
+  <div class = "research_brief container-fluid col-md-12", id = "research">
    <div class = "topic">
     <p>Research</p>
    </div>
-   <div class = "introduction col-md-12">
+     <div class = "col-md-1 col-lg-12"></div>
+
+   <div class = "introduction container col-xs-12 col-md-12 col-lg-12">
     <p>The LAEC seeks to understand and solve fundamental problems at multiscale levels to improve energy conversion efficiency.</p>
-    <div class = "thumbs_set col-md-12">
+    <div
+    <div class = "thumbs_set">
      <div class = "thumb">
       <%= image_tag("ac-service-crop-u729.jpg")%>
       <div class = "overlay">
@@ -69,7 +70,7 @@
       <%= image_tag("thermal_management_batteries_photo-crop-u812")%>
       <div class = "overlay">
        <div class = "text">
-        Microstructured</br>Materials
+        Battery Thermal<br>Management
        </div>
       </div>
      </div>
@@ -77,33 +78,35 @@
       <%= image_tag("hybrid_news-crop-u825.jpg")%>
       <div class = "overlay">
        <div class = "text">
-        Green AC-R in</br>Service Vehicles
+        Microstructured</br>Materials
        </div>
       </div>
      </div>
      <div class = "thumb square3">
-     <div class = "overlay2">
-      <div class = "text">
-       Read More
+            <%= image_tag("hybrid_news-crop-u825.jpg")%>
+      <div class = "overlay2">
+       <div class = "text">
+        Read More
+       </div>
       </div>
-     </div>
     </div>
     </div>
    </div>
   </div>
   <div class = "col-md-12"></div>
   <!------Second----->
-  <div class = "service_brief col-12">
+  <div class = "service_brief container-fluid col-md-12">
    <div class = "topic", id = "service">
-    <p>Service</p>
+    <span>Service</span>
    </div>
-   <div class = "col-1"></div>
-   <div class = "introduction col-sm-10">
+   <div class = "col-md-1 col-lg-12"></div>
+   <div class = "introduction container col-xs-12 col-md-10 col-lg-12">
     <p>The LAEC provides analysis, testing, and material characterization services in the general area of energy systems.</p>
-   <div class = "col-md-6 col-xs-12">
+   <div class = "container col-md-2 col-lg-12"></div>
+   <div class = "col-xs-12 col-md-8 col-lg-6">
     <%= image_tag("tps-crop-u999.jpg")%>
    </div>
-   <div class = "bullet col-xs-12 col-md-12">
+   <div class = "bullet col-xs-12 col-md-12 col-lg-6">
     <ul>
      <li>Battery Services</li>
      <li>Thermophysical properties measurements (porous media, polymers, powders, pastes, liquids and solids)</li>
@@ -111,51 +114,53 @@
      <li>Electronic cooling and enclosure design</li>
      <li>Mechanical testing</li>
      <li>Air-conditioning and refrigeration services</li>
-    </ul>
-    <div class = "link_button">
-     <span>Read More &rarr;</span>
-    </div>
+     <li>
+      <div class = "link_button">
+      <%= link_to "Read More", research_path %>
+      </div>
+     </li>
+   </ul>
+
    </div>
  
    </div>
   </div>
   
-   <!------Third----->
-  <div class = "aboutus_brief col-12">
-   <div class = "topic", id = "service">
-    <p>About Us</p>
-   </div>
-   <div class = "col-1"></div>
-   <div class = "namecard col-10">
-     <div class = "card_pic col-4">
-      <%= image_tag("majid bahrami 010.jpg")%>
-     </div>
-     <div class = "card_text">
-      <div class = "card_title">
-        <p>Principle Investigator</p>
-      </div>
-      <div class = "card_name">
-       <p>Majid Bahrami, PhD, P.Eng.</p>
-      </div>
-      <div class = "card_detail">
-       <p>Professor<br>
-          Canada Research Chair in Alternative Energy Conversion Systems<br>
-          Member: AIAA, ASME Fellow, SAE, ASHRAE<br><br>
-           
-          Faculty of Applied Science<br>
-          School of Mechatronic Systems Engineering<br>
-          Simon Fraser University<br>
-          250-13450 102 Avenue<br>
-          Surrey, BC, V3T 0A3, Canada<br><br>
-           
-          Office: Galleria 4, Room 4164<br>
-          Laboratory: Galleria 4, Room 4280<br>
-          Tel.: +1 (778) 782-8538<br>
-          Fax: +1 (778) 782-7514<br>
-          e-mail: mbahrami@sfu. ca</p>
-      </div>
-     </div>
-   </div>
-   
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+<!------Third----->
+<div class = "aboutus_brief container-fluid col-md-12">
+ <div class = "topic", id = "about">
+  <p>About Us</p>
  </div>
+ <div class = "namecard container">
+   <div class = "card_pic container col-lg-4 col-md-5 col-xs-6">
+    <%= image_tag("majid bahrami 010.jpg")%>
+   </div>
+   <div class = "card_text container">
+    <div class = "card_title">
+      <p>Principle Investigator</p>
+    </div>
+    <div class = "card_name">
+     <p>Majid Bahrami, PhD, P.Eng.</p>
+    </div>
+    <div class = "card_detail ">
+     <p>Professor<br>
+        Canada Research Chair in Alternative Energy Conversion Systems<br>
+        Member: AIAA, ASME Fellow, SAE, ASHRAE<br><br>
+         
+        Faculty of Applied Science<br>
+        School of Mechatronic Systems Engineering<br>
+        Simon Fraser University<br>
+        250-13450 102 Avenue<br>
+        Surrey, BC, V3T 0A3, Canada<br><br>
+         
+        Office: Galleria 4, Room 4164<br>
+        Laboratory: Galleria 4, Room 4280<br>
+        Tel.: +1 (778) 782-8538<br>
+        Fax: +1 (778) 782-7514<br>
+        e-mail: mbahrami@sfu. ca</p>
+    </div>
+   </div>
+ </div>
+</div>
+
+
