@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get '/signup', to: 'users#new'
 
-  resources :users
   get '/home', to: 'static_pages#home'
 
   get '/research', to: 'static_pages#research'
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
   
-
+  resources :users
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
