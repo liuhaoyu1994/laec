@@ -6,25 +6,19 @@
 @media screen and (min-width: 770px) {
   
 .nav-up {
-  #logo2 {
-    display:none;
-}   
   #logo {
     display:none;
   }   
 }
 
-#logo {
-  margin-top: 0.5em;
-  margin-left: 1em;
-  height:6.5vw;
-  min-height:5em;
+#logo5{
+  display:none;
 }
 
-#logo2 {
-  height:7vw;
-  min-height:5em;
-
+#logo {
+  margin-top: 0.5em;
+  height:4.5vw;
+  min-height:3em;
 }
 
 .navbar{
@@ -33,16 +27,18 @@
 
 .navbar ul{
   position:absolute;
-  width:50%;
-  padding-right:4vw;
-  right:0;
+  padding-right:2em;
+  width:60%;
   bottom:0;
+  right:0;
 }
 
 
 
 .navbar-default .navbar-nav > li{
-  width:25%;
+  width:20%;
+  padding-left:0.5em;
+  padding-right:0.5em;
   font-size:1.3em;
   font-weight:bold;
   text-align:center;
@@ -96,8 +92,19 @@
 
 @media screen and (max-width: 769px) {
 
-.nav-up{
+#logo5{
+  width:15%;
+  margin:0.5em;
+  min-width:6em;
 }
+
+.nav-up{
+  #logo{
+    display:none;
+  }
+}
+
+
 
 .navbar-toggle {
   display: block;
@@ -130,11 +137,6 @@
 	
 #logo {
   display: none;
-}
-
-#logo2 {
-  display: none;
-  
 }
 
 .navbar{

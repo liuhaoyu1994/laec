@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<% provide(:title, @facility.title)%>
+
+<p>
+  <%= link_to image_tag(@facility.image.url()), @facility.image.url %>
+  <%= @facility.title %>
+  
+</p>
+
+
+<%= link_to 'Edit', edit_facility_path(@facility) %> |
+<%= link_to 'Back', facilities_path %>

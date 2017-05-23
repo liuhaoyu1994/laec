@@ -1,0 +1,25 @@
+<% provide(:title, 'New Project') %>
+<h1>New Project</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@project) do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control' %>
+
+      <%= f.label :publication %>
+      <%= f.text_field :publication, class: 'form-control' %>
+
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id, class: 'form-control' %>
+
+      <%= f.file_field :image %>
+
+      <%= f.submit "Create my project", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

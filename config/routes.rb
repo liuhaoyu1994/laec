@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get '/signup', to: 'users#new'
 
+  get '/newproject', to: 'projects#new'
+
   get '/home', to: 'static_pages#home'
 
   get '/research', to: 'static_pages#research'
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   resources :users
+  resources :projects
+  resources :facilities
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -13,7 +13,6 @@
 <body>
   <div class="container-fluid">
       <header class="navbar navbar-fixed-top navbar-default nav-down">
-        <%= image_tag("SFU_StdBlock-Horz_Pos_RGB.jpg", alt: "SFU_Logo", id:"logo6")%>
         <%= link_to image_tag("LOGO_blue_text.png", alt: "Logo", id:"logo5"),
                 root_path %>
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -22,18 +21,21 @@
             <span class="icon-bar"></span>
           </button>
             <div class="collapse navbar-collapse">
-              <div class="brand">
-              <%= image_tag("SFU_StdBlock-Horz_Pos_RGB.jpg", alt: "SFU_Logo", id:"logo2")%>
+              <div class="brand col-md-2 col-md-offset-1">
               <%= link_to image_tag("LOGO_blue_text.png", alt: "Logo", id:"logo"),
                 root_path %>
               </div>
-              <ul class="nav navbar-nav navbar-left">
+              <ul class="nav navbar-nav navbar-right">
                 <li  data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/home') || current_page?(root_path) %>"><%= link_to "Home", root_path%></li>
-                <li  data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/research') %>"><%= link_to "Research", research_path%></li>
+                <li  data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/projects') %>"><%= link_to "Research", projects_path%></li>
                 <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/service') %>"><%= link_to "Service", service_path%></li>
+                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/facilities') %>"><%= link_to "Facilities", facilities_path%></li>
                 <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/about') %>"><%= link_to "About", about_path%></li>
               </ul>
+              
+
           </div>
+
     </header>
   </div>
 

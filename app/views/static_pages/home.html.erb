@@ -1,13 +1,17 @@
 <% provide(:title,"Home") %>
   <div class = "welcome_cover">
    <%= image_tag("17741.jpg")%>
+   <div class="brand-right">
+      <%= image_tag("SFU_StdBlock-Horz_Pos_RGB.jpg", alt: "SFU_Logo", id:"logo2")%>
+    </div>
    <div class="welcome_text">
      <span>Welcome To Laboratory for Alternative Energy Conversion</span>
+     
    </div>
   </div>
 
 
-  <!---first--->
+  <!---first
   <div class = "research_brief container-fluid col-md-12", id = "research">
    <div class = "topic">
     <p>Research</p>
@@ -103,10 +107,10 @@
    <div class = "introduction container col-xs-12 col-md-10 col-lg-12">
     <p>The LAEC provides analysis, testing, and material characterization services in the general area of energy systems.</p>
    <div class = "container col-md-2 col-lg-12"></div>
-   <div class = "col-xs-12 col-md-8 col-lg-6">
+   <div class = "col-md-12">
     <%= image_tag("tps-crop-u999.jpg")%>
    </div>
-   <div class = "bullet col-xs-12 col-md-12 col-lg-6">
+   <div class = "bullet col-md-10 col-md-offset-1">
     <ul>
      <li>Battery Services</li>
      <li>Thermophysical properties measurements (porous media, polymers, powders, pastes, liquids and solids)</li>
@@ -132,10 +136,10 @@
   <p>About Us</p>
  </div>
  <div class = "namecard container">
-   <div class = "card_pic container col-lg-4 col-md-5 col-xs-6">
+   <div class = "card_pic col-lg-4 col-md-5 col-xs-6">
     <%= image_tag("majid bahrami 010.jpg")%>
    </div>
-   <div class = "card_text container">
+   <div class = "card_text">
     <div class = "card_title">
       <p>Principle Investigator</p>
     </div>
@@ -164,5 +168,6 @@
    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 
 </div>
+
 
 
