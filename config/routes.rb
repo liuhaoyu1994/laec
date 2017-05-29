@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'authors/new'
+
+  get 'authors/index'
+
+  get 'authors/show'
+
   get '/signup', to: 'users#new'
 
   get '/newproject', to: 'projects#new'

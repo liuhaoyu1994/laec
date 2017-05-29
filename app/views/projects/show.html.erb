@@ -3,7 +3,9 @@
   <span class="title col-md-12"><%= @project.title%></span>
   <div class="col-md-1"></div>
 
-  <span class="user col-md-10"><%= link_to @project.user.name, @project.user %> Posted <%= time_ago_in_words(@project.created_at) %> ago.</span>
+  <span class="user col-md-10">
+    <%= link_to @project.user.name, @project.user %>
+     Posted <%= time_ago_in_words(@project.created_at) %> ago.</span>
   
   <div class = "project-image">
     <%= link_to image_tag(@project.image.url()), @project.image.url %>

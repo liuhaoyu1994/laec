@@ -1,6 +1,6 @@
 <% provide(:title,"Home") %>
   <div class = "welcome_cover">
-   <%= image_tag("17741.jpg")%>
+   <%= image_tag("17742.png")%>
    <div class="brand-right">
       <%= image_tag("SFU_StdBlock-Horz_Pos_RGB.jpg", alt: "SFU_Logo", id:"logo2")%>
     </div>
@@ -11,7 +11,7 @@
   </div>
 
 
-  <!---first
+  <!---first--->
   <div class = "research_brief container-fluid col-md-12", id = "research">
    <div class = "topic">
     <p>Research</p>
@@ -90,7 +90,7 @@
             <%= image_tag("hybrid_news-crop-u825.jpg")%>
       <div class = "overlay2">
        <div class = "text">
-        Read More
+        <%= link_to "Read More", projects_path%>
        </div>
       </div>
     </div>
@@ -165,7 +165,6 @@
     </div>
    </div>
  </div>
-   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 
 </div>
 

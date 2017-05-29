@@ -4,9 +4,14 @@
 
 .brand-right{
   position:absolute;
-  float:left;
-  width:15%;
+  width:100%;
   top:0;
+}
+
+
+#logo2{
+    width:15%;
+  float:right;
 }
 
 
@@ -41,13 +46,19 @@
 
 .welcome_text{
   position:relative;
+  float:right;
+  width:50%;
   height:8vw;
   top:-8vw;
-  font-size: 2.8vw;
+  font-size: 2.2vw;
   color:white;
   text-align:left;
-  background-color:rgba(0,0,0,0.5);
+  background-color:rgba(0,0,0,0.6);
   padding-left:1vw;
+}
+
+.overlay2 .text a{
+  color:white;
 }
 
 .research_brief{
@@ -254,7 +265,7 @@
   position:relative;
   height:8vw;
   top:-8vw;
-  font-size: 3.5vw;
+  font-size: 3vw;
   color:white;
   text-align:center;
   background-color:rgba(0,0,0,0.5);
