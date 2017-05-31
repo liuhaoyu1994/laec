@@ -11,25 +11,12 @@
       <%= f.label :description %>
       <%= f.text_area :description, class: 'form-control' %>
 
-      <%= f.label :publication %>
-      <%= f.text_field :publication, class: 'form-control' %>
 
-      <%= f.label :user_id %>
-      <%= f.text_field :user_id, class: 'form-control' %>
 
 
       <%= f.file_field :image %>
 
-      <ul class = "users-list">
-        <div class = "users-icon">
-          <% @users.each do |user| %>
-              <div class = "users-selection">
-                <%= gravatar_for user, size: 50 %>
-                <%= link_to user.name, user %>
-              </div>
-          <% end %>
-        </div>
-      </ul>
+      
       
       <%= f.submit "Create my project", class: "btn btn-primary" %>
     <% end %>

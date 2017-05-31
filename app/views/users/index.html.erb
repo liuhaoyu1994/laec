@@ -1,9 +1,18 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
-<ul class="users">
-  <% @users.each do |user| %>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-  <% end %>
-</ul>
+
+
+<% if !logged_in? %> 
+  <%= link_to "Log in", login_path %>
+<% else %>
+  <ul class="users">
+    <%= link_to current_user.name, current_user, :class => "btn btn-danger col-md-12" %>
+
+    <% @users.each do |user| %>
+        <%= gravatar_for user, size: 50 %>
+        <%= link_to user.name, user %>
+    <% end %>
+  </ul>
+
+<% end %>

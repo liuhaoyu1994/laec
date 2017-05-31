@@ -1,0 +1,13 @@
+                <div id="participate_form">
+                  <% if user.participate?(@project) %>
+                    <%= form_for(@project.relationships.find_by(article_id: @user.id),
+                                 html: { method: :delete }) do |f| %>
+                      <%= f.submit "Quit", class: "btn" %>
+                    <% end %>                  
+                  <% else %>
+                    <%= form_for(@project.relationships.build) do |f| %>
+                      <div><%= hidden_field_tag :author_id, user.id %></div>
+                      <%= f.submit "Participate", class: "btn btn-primary" %>
+                    <% end %>
+                  <% end %>
+                </div>

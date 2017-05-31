@@ -1,8 +1,9 @@
 class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
+    @authors = @project.authors
+    @users  = User.find(@authors.ids)
   end
-
 
   def new
     @project = Project.new
@@ -11,10 +12,9 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.user_id = current_user.id
     if @project.save
-      @author = Author.new(author_params)
-      debugger
-      redirect_to @project
+      redirect_to edit_project_path(@project)
     else
       render 'new'
     end
@@ -25,6 +25,23 @@ class ProjectsController < ApplicationController
    @projects = Project.all
  end
  
+  def edit
+    @users = User.all
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(project_params)
+    else
+      render 'edit'
+    end
+  end
+ 
+  def participate
+
+  end
+ 
   private
 
     def project_params
@@ -32,9 +49,7 @@ class ProjectsController < ApplicationController
                                    :password_confirmation)
     end
     
+    
 
     
-    def author_params
-      params.require(:author).permit(:user_id, :project_id)
-    end
 end

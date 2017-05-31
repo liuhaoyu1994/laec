@@ -1,0 +1,7 @@
+<div id="participate_form">
+<% if user.participate?(@project) %>
+  <%= render 'quit' %>
+<% else %>
+  <%= render 'participate' %>
+<% end %>
+</div>

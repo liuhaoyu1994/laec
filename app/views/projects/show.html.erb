@@ -13,5 +13,17 @@
   <span class="project-description col-md-12"><%= @project.description  %></span>
   <span class="user col-md-10 topic">Related Publication: <%= @project.publication %>.</span>
 
+      <ul class = "users-list">
+        <div class = "users-icon">
+          <% @users.each do |user| %>
+              <div class = "users-selection">
+                <%= gravatar_for user, size: 50 %>
+                <%= link_to user.name, user %>
+                
+              </div>
+          <% end %>
+          
+        </div>
+      </ul>
 
 </div>

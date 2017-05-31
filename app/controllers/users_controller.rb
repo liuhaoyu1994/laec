@@ -5,11 +5,15 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @articles = @user.articles
+    @projects  = Project.find(@articles.ids)
   end
   
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
+      flash[:success] = "Welcome to the LAEC!"
       redirect_to @user
     else
       render 'new'
@@ -17,10 +21,15 @@ class UsersController < ApplicationController
     
   end
  
- def index
+  def index
    @users = User.all
- end
+  end
  
+  def destroy
+    log_out
+    redirect_to root_url
+  end
+  
   private
 
     def user_params

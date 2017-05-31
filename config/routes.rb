@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get 'authors/new'
 
   get 'authors/index'
@@ -17,6 +19,11 @@ Rails.application.routes.draw do
 
   get '/about', to:'static_pages#aboutus'
 
+  get    '/login',   to: 'sessions#new'
+  
+  post   '/login',   to: 'sessions#create'
+  
+  delete '/logout',  to: 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -26,7 +33,18 @@ Rails.application.routes.draw do
   resources :users
   resources :projects
   resources :facilities
-
+  resources :relationships,       only: [:create, :destroy]
+  resources :users do
+    member do
+      get :articles
+    end
+  end
+  
+  resources :projects do
+    member do
+      get :authors
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

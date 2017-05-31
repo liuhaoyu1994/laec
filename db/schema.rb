@@ -10,16 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526223303) do
+ActiveRecord::Schema.define(version: 20170529221706) do
 
-  create_table "authors", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_authors_on_project_id"
-    t.index ["users_id"], name: "index_authors_on_users_id"
-  end
 
   create_table "facilities", force: :cascade do |t|
     t.text     "title"
@@ -50,6 +42,16 @@ ActiveRecord::Schema.define(version: 20170526223303) do
   create_table "projects_users", id: false, force: :cascade do |t|
     t.integer "user_id",    null: false
     t.integer "project_id", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "article_id"
+    t.integer  "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id", "author_id"], name: "index_relationships_on_article_id_and_author_id", unique: true
+    t.index ["article_id"], name: "index_relationships_on_article_id"
+    t.index ["author_id"], name: "index_relationships_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
