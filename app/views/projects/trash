@@ -1,0 +1,9 @@
+<!--
+<div id="participate_form">
+<% if user.participate?(project) %>
+  <%= render partial: "projects/quit", locals: { user: user, project: project} %> 
+<% else %>
+  <%= render partial: "projects/participate", locals: { user: user, project: project} %> 
+<% end %>
+</div>
+-->

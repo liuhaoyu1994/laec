@@ -1,7 +1,30 @@
-<div id="participate_form">
-<% if user.participate?(@project) %>
-  <%= render 'quit' %>
-<% else %>
-  <%= render 'participate' %>
-<% end %>
-</div>
+<ul>
+        <div class = "participate_list">
+          <% @users = @users - @authors%>
+          <% @users.each do |user| %>
+              <div class = "item">
+                <%= gravatar_for user, size: 50 %>
+                <%= link_to user.name, user %>
+                <% if user.participate?(@project) %>
+                  <%= render partial: "projects/quit", locals: { user: user, project: @project} %> 
+                <% else %>
+                  <%= render partial: "projects/participate", locals: { user: user, project: @project} %> 
+                <% end %> 
+              </div>
+          <% end %>
+        </div>
+          <div class = "participate_list">
+            <% @authors.each do |user| %>
+              <div class = "item">
+                  <%= gravatar_for user, size: 50 %>
+                  <%= link_to user.name, user %>
+                <% if user.participate?(@project) %>
+                  <%= render partial: "projects/quit", locals: { user: user, project: @project} %> 
+                <% else %>
+                  <%= render partial: "projects/participate", locals: { user: user, project: @project} %> 
+                <% end %> 
+              </div>
+            <% end %>
+          </div>
+        </div>
+</ul>
