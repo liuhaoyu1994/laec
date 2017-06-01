@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <% provide(:title, @user.name)%>
-
 <p>
   <%= gravatar_for @user %>
-  <%= link_to current_user.name, current_user %>
+  <%= link_to @user.name, @user %>
 </p>
+
 <% if logged_in? %>
+
     <%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-default" %>
     <%= link_to 'Back', users_path, :class => "btn btn-default" %></br>
     <%= link_to "Create New Project", newproject_path, :class => "btn btn-default" %>

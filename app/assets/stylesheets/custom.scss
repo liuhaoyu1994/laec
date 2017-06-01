@@ -249,3 +249,16 @@ input {
     color: $state-danger-text;
   }
 }
+
+.participate_list {
+  margin: 5em;
+  padding: 2em;
+  border: solid;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.item{
+  width:20%;
+  display:inline-block;
+  padding-top:2em;
+}

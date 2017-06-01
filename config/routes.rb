@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   resources :users
-  resources :projects
+  resources :projects             
   resources :facilities
   resources :relationships,       only: [:create, :destroy]
   resources :users do

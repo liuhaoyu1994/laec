@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+  
+    before_action :correct_user,   only: :destroy
+
   def show
     @project = Project.find(params[:id])
     @authors = @project.authors
@@ -13,6 +16,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
+
     if @project.save
       redirect_to edit_project_path(@project)
     else
@@ -26,8 +30,9 @@ class ProjectsController < ApplicationController
  end
  
   def edit
-    @users = User.all
     @project = Project.find(params[:id])
+    @users = User.all
+    @authors = @project.authors
   end
 
   def update
@@ -38,10 +43,17 @@ class ProjectsController < ApplicationController
     end
   end
  
-  def participate
-
+  def destroy
+    @project.destroy
+    flash[:success] = "project deleted"
+    redirect_to(projects_path)
   end
- 
+
+  def correct_user
+    @project = current_user.projects.find_by(id: params[:id])
+    redirect_to root_url if @project.nil?
+  end
+    
   private
 
     def project_params
