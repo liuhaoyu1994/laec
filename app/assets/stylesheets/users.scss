@@ -1,3 +1,25 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user_articles_list{
+ top:0;
+  vertical-align:top;
+  height:30em;
+  width:30%;
+  display:inline-block;
+  margin:0.5em;
+  padding:1em;
+  background-color:whitesmoke;
+  box-shadow: 0px 0px 6px 3px rgba(0,0,0,0.1);}
+
+.user_articles_thumb{
+  max-height:15em;
+  height:15vw;
+  overflow:hidden;
+}
+
+.user_articles_thumb img{
+  width:100%;
+}

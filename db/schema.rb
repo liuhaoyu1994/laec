@@ -10,8 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529221706) do
+ActiveRecord::Schema.define(version: 20170602170342) do
 
+  create_table "authors", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_authors_on_project_id"
+    t.index ["users_id"], name: "index_authors_on_users_id"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.integer  "projects_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.index ["projects_id"], name: "index_documents_on_projects_id"
+  end
 
   create_table "facilities", force: :cascade do |t|
     t.text     "title"
@@ -23,6 +42,18 @@ ActiveRecord::Schema.define(version: 20170529221706) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.string   "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "project_id"
+    t.index ["project_id"], name: "index_galleries_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'galleries/show'
+
+  get 'galleries/new'
+
+  get 'galleries/index'
+
+  get 'galleries/edit'
+
   get 'sessions/new'
 
   get 'authors/new'
@@ -33,6 +41,7 @@ Rails.application.routes.draw do
   resources :users
   resources :projects             
   resources :facilities
+  resources :galleries
   resources :relationships,       only: [:create, :destroy]
   resources :users do
     member do

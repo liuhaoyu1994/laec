@@ -12,7 +12,9 @@
   </div>
   <span class="project-description col-md-12"><%= @project.description  %></span>
   <span class="user col-md-10 topic">Related Publication: <%= @project.publication %>.</span>
-
+  <% @project.galleries.each do |pic| %>
+    <%= link_to image_tag(pic.image.url()), pic.image.url %>
+  <% end %>
       <ul class = "users-list">
         <div class = "users-icon">
           <% @users.each do |user| %>
