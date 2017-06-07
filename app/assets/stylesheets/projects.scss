@@ -129,8 +129,16 @@
 }
 
 .project-description{
-    font-family:"times";
-    font-size:1.1em;
-    column-count: 3;
-    column-gap: 1em;
+    font-size:1.3em;
+}
+
+.galleries img{
+  width:100%;
+}
+
+.project-detail{
+  position:relative;
+  padding-top:5em;
+  padding:2em;
+  background:whitesmoke;
 }

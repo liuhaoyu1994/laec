@@ -11,7 +11,6 @@ class GalleriesController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @gallery = @project.galleries.build(gallery_params)
-          debugger
     if @gallery.save
       redirect_to(projects_path)
     end
@@ -21,8 +20,6 @@ class GalleriesController < ApplicationController
   end
   
   def update
-          debugger
-
         redirect_to(projects_path)
   end
   

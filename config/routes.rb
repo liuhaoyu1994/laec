@@ -1,4 +1,26 @@
 Rails.application.routes.draw do
+  get 'static_pages/home'
+
+  get 'publish_user_relationships/create'
+
+  get 'publish_user_relationships/destroy'
+
+  get 'publish_relationships/new'
+
+  get 'publish_relationships/show'
+
+  get 'publish_relationships/index'
+
+  get 'publish_relationships/edit'
+
+  get 'publications/new'
+
+  get 'publications/show'
+
+  get 'publications/index'
+
+  get 'publications/edit'
+
   get 'galleries/show'
 
   get 'galleries/new'
@@ -38,6 +60,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
   
+  resources :publish_user_relationships
+  resources :publish_relationships
+  resources :publications
   resources :users
   resources :projects             
   resources :facilities

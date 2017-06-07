@@ -1,0 +1,14 @@
+<% provide(:title, 'All Publications') %>
+<div class = "term_detail">
+  <div class = "topic">Research</div>
+  <div class = "detail_intro">LAEC seeks to understand and solve fundamental problems at multiscale levels to improve energy conversion efficiency in devices such as compact heat exchangers, fuel cells, batteries, and refrigeration systems. The following highlights some of the current research projects in our group.</div>
+    
+  <div class="projects">
+    <% @publications.each do |publication| %>
+        <div class = "project_brief">
+          <%= link_to publication.title, publication.file.url(), {:class=>"thumb-title col-xs-12 col-md-12"}%>
+          <%= truncate(publication.descryption, :length => 250) %>
+        </div>
+    <% end %>
+  </div>
+  </div>

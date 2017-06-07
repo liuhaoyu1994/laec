@@ -28,9 +28,8 @@
               <ul class="nav navbar-nav navbar-right">
                 <li  data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/home') || current_page?(root_path) %>"><%= link_to "Home", root_path%></li>
                 <li  data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/projects') %>"><%= link_to "Research", projects_path%></li>
-                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/service') %>"><%= link_to "Service", service_path%></li>
                 <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/facilities') %>"><%= link_to "Facilities", facilities_path%></li>
-                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/facilities') %>"><%= link_to "Teaching", facilities_path%></li>
+                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/teaching') %>"><%= link_to "Teaching", facilities_path%></li>
                 <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/about') %>"><%= link_to "About", users_path%></li>
               </ul>
               
@@ -43,7 +42,7 @@
 <div class="container-fluid">
 <div id="blank"></div>
 
-    <div class="container">
+    <div class="container col-md-12">
       <%= yield %>
       <%= debug(params) if Rails.env.development? %>
 </div>

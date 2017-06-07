@@ -2,9 +2,11 @@ class User < ApplicationRecord
   has_many :projects
   has_many :relationships, foreign_key: "author_id",
                                   dependent: :destroy
-                                  
+  has_many :publish_user_relationships, foreign_key: "user_id",
+                                  dependent: :destroy
+  has_many :authors, through: :relationships
   has_many :articles, through: :relationships
-
+  has_many :publications, through: :publish_user_relationships
   before_save { self.email = email.downcase }
 
   validates :name, presence: true, length: {maximum: 50}
@@ -26,6 +28,18 @@ class User < ApplicationRecord
 
   def participate?(project)
     articles.include?(project)
+  end
+
+  def add(publication)
+    publish_user_relationships.create(publication_id: publication.id)
+  end
+
+  def quit(publication)
+    publish_user_relationships.find_by(publication_id: publication.id).destroy
+  end
+
+  def author?(publication)
+    publications.include?(publication)
   end
 
 end

@@ -1,4 +1,5 @@
 <% provide(:title,"Home") %>
+<div class = "mainblock col-md-8 col-md-offset-1">
   <div class = "welcome_cover">
    <%= image_tag("17742.png")%>
    <div class="brand-right">
@@ -16,12 +17,26 @@
    <div class = "topic">
     <p>Research</p>
    </div>
-     <div class = "col-md-1 col-lg-12"></div>
-
    <div class = "introduction container col-xs-12 col-md-12 col-lg-12">
     <p>The LAEC seeks to understand and solve fundamental problems at multiscale levels to improve energy conversion efficiency.</p>
-    <div
     <div class = "thumbs_set">
+     <% @projects.each do |project| %>
+        <div class = "item_brief container col-md-4">
+          <div class = "item_thumb">
+            <%= link_to image_tag(project.image.url()), project%>
+          </div>
+          <%= link_to project.title, project, {:class=>"item_title col-md-12"}%>
+        </div>
+    <% end %>
+    <%= link_to "View More", projects_path, {:class=> "something col-md-4 col-md-offset-4 btn btn-primary"}%>
+
+   </div>
+  </div>
+
+ </div>
+
+
+    <!---
      <div class = "thumb">
       <%= image_tag("ac-service-crop-u729.jpg")%>
       <div class = "overlay">
@@ -167,6 +182,8 @@
  </div>
 
 </div>
+</div>
 
-
-
+<div class = "container col-md-2 ">
+<a class="twitter-timeline"  href="https://twitter.com/TwitterDev/timelines/539487832448843776">National Park Tweets - Curated tweets by TwitterDev</a>  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>

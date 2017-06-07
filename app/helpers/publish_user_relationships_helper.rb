@@ -1,0 +1,2 @@
+module PublishUserRelationshipsHelper
+end

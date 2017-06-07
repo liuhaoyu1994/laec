@@ -10,27 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602170342) do
-
-  create_table "authors", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_authors_on_project_id"
-    t.index ["users_id"], name: "index_authors_on_users_id"
-  end
-
-  create_table "documents", force: :cascade do |t|
-    t.integer  "projects_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-    t.index ["projects_id"], name: "index_documents_on_projects_id"
-  end
+ActiveRecord::Schema.define(version: 20170606174816) do
 
   create_table "facilities", force: :cascade do |t|
     t.text     "title"
@@ -70,9 +50,35 @@ ActiveRecord::Schema.define(version: 20170602170342) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
-  create_table "projects_users", id: false, force: :cascade do |t|
-    t.integer "user_id",    null: false
-    t.integer "project_id", null: false
+  create_table "publications", force: :cascade do |t|
+    t.string   "title"
+    t.text     "descryption"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.date     "time"
+  end
+
+  create_table "publish_relationships", force: :cascade do |t|
+    t.integer  "publication_id"
+    t.integer  "project_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["project_id"], name: "index_publish_relationships_on_project_id"
+    t.index ["publication_id"], name: "index_publish_relationships_on_publication_id"
+  end
+
+  create_table "publish_user_relationships", force: :cascade do |t|
+    t.integer  "publication_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["publication_id", "user_id"], name: "index_publish_user_relationships_on_publication_id_and_user_id", unique: true
+    t.index ["publication_id"], name: "index_publish_user_relationships_on_publication_id"
+    t.index ["user_id"], name: "index_publish_user_relationships_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -91,6 +97,8 @@ ActiveRecord::Schema.define(version: 20170602170342) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.string   "title"
+    t.integer  "department"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

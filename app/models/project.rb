@@ -4,6 +4,11 @@ class Project < ApplicationRecord
   has_many :relationships, foreign_key: "article_id",
                                   dependent: :destroy
   has_many :authors, through: :relationships
+  
+  has_many :publish_relationships, foreign_key: "project_id",
+                                  dependent: :destroy
+  has_many :publications ,through: :publish_relationships
+  
   has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }
 
   validates_attachment :image, :presence => true,
@@ -24,5 +29,18 @@ class Project < ApplicationRecord
 
   def participate?(user)
     authors.include?(user)
+  end
+  
+  
+  def relate(publication)
+    publish_relationships.create(publication_id: publication.id)
+  end
+
+  def disrelate(publication)
+    publish_relationships.find_by(publication_id: publication.id).destroy
+  end
+
+  def relate?(publication)
+    publications.include?(publication)
   end
 end

@@ -1,19 +1,23 @@
-<div class = "container-fluid project-detail" id="project-<%= @project.id %>">
+<div class = "col-md-8 col-md-offset-2 project-detail" id="project-<%= @project.id %>">
   
   <span class="title col-md-12"><%= @project.title%></span>
-  <div class="col-md-1"></div>
 
-  <span class="user col-md-10">
-    <%= link_to @project.user.name, @project.user %>
+  <span class="user col-md-12">
+      <%= link_to @project.user.name, @project.user %>
      Posted <%= time_ago_in_words(@project.created_at) %> ago.</span>
   
   <div class = "project-image">
     <%= link_to image_tag(@project.image.url()), @project.image.url %>
   </div>
   <span class="project-description col-md-12"><%= @project.description  %></span>
-  <span class="user col-md-10 topic">Related Publication: <%= @project.publication %>.</span>
+  <span class="user col-md-10 topic">Related Publication:</span>
+  <ul>
+    <% @project.publications.each do |publication| %>
+      <li><%= link_to publication.title, publication %></li>
+    <% end %>
+  </ul>
   <% @project.galleries.each do |pic| %>
-    <%= link_to image_tag(pic.image.url()), pic.image.url %>
+    <div class = "galleries"><%= link_to image_tag(pic.image.url()), pic.image.url %></div>
   <% end %>
       <ul class = "users-list">
         <div class = "users-icon">
@@ -27,5 +31,6 @@
           
         </div>
       </ul>
+    <%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-default" %>
 
 </div>

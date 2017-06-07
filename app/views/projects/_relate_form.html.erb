@@ -1,0 +1,25 @@
+<ul>
+        <div class = "participate_list">
+          <% @publications = @publications - @project.publications%>
+          <% @publications.each do |publication| %>
+              <div class = "item">
+                <%= link_to publication.title, publication %>
+                <% if publication.relate?(@project) %>
+                <% else %>
+                  <%= render partial: "projects/relate", locals: { publication: publication, project: @project} %> 
+                <% end %> 
+              </div>
+          <% end %>
+        </div>
+          <div class = "participate_list">
+            <% @project.publications.each do |publication| %>
+              <div class = "item">
+                  <%= link_to publication.title, publication %>
+                <% if publication.relate?(@project) %>
+                  <%= render partial: "projects/disrelate", locals: { publication: publication, project: @project} %> 
+                <% end %> 
+              </div>
+            <% end %>
+          </div>
+        </div>
+</ul>

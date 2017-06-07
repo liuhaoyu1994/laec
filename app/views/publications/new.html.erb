@@ -1,0 +1,21 @@
+<% provide(:title, 'New Publication') %>
+<h1>New Publication</h1>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <%= form_for(@publication) do |f| %>
+
+      <%= f.label :Title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :descryption %>
+      <%= f.text_area :descryption, class: 'form-control' %>
+
+
+      <%= f.file_field :file %>
+
+      
+      <%= f.submit "Upload my publication", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

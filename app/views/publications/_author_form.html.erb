@@ -1,0 +1,29 @@
+<ul>
+        <div class = "participate_list">
+          <% @users = @users - @publication.users%>
+          <% @users.each do |user| %>
+              <div class = "item">
+                <%= gravatar_for user, size: 50 %>
+                <%= link_to user.name, user %>
+                <% if user.author?(@publication) %>
+                <% else %>
+                  <%= render partial: "publications/add", locals: { user: user, publication: @publication} %> 
+                <% end %> 
+              </div>
+          <% end %>
+        </div>
+          <div class = "participate_list">
+            <% @publication.users.each do |user| %>
+              <div class = "item">
+                  <%= gravatar_for user, size: 50 %>
+                  <%= link_to user.name, user %>
+                <% if user.author?(@publication) %>
+                  <%= render partial: "publications/quit", locals: { user: user, publication: @publication} %> 
+                <% else %>
+                  <%= render partial: "publications/add", locals: { user: user, publication: @publication} %> 
+                <% end %> 
+              </div>
+            <% end %>
+          </div>
+        </div>
+</ul>

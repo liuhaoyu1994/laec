@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
  end
  
   def edit
+    @publications = Publication.all
     @project = Project.find(params[:id])
     @users = User.all
     @authors = @project.authors

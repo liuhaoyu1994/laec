@@ -1,0 +1,8 @@
+<div class = "container-fluid project-detail" id="project-<%= @publication.id %>">
+  
+  <span class="title col-md-12"><%= @publication.title%></span>
+  <div class="col-md-1"></div>
+    
+    <%= link_to @publication.title, @publication.file.url()%>
+  <span class="project-description col-md-12"><%= @publication.descryption  %></span>
+</div>

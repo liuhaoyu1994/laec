@@ -1,0 +1,6 @@
+<%= form_for(project.publish_relationships.find_by(project_id: project.id),
+               html: { method: :delete }, remote: true) do |f| %>
+    <div><%= hidden_field_tag :project_id, project.id %></div>
+    <div><%= hidden_field_tag :publication_id, publication.id %></div>
+    <%= f.submit "Quit", class: "btn btn-danger" %>
+<% end %>                  

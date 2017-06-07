@@ -19,7 +19,12 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+      
+      <%= f.label :department %>
+      <%= select_tag(:city_id, options_for_select([['Senior Staff', 1], ['Students', 2], ['Past Members', 3], ['Co-op Students', 4]])) %>
+      
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>

@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
+    @projects = Project.order('id DESC').take(3)
+    @project = Project.take(4)
   end
 
   def research
@@ -10,4 +12,6 @@ class StaticPagesController < ApplicationController
 
   def aboutus
   end
+  
+
 end
