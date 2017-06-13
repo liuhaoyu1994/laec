@@ -23,9 +23,10 @@
         <div class = "users-icon">
           <% @users.each do |user| %>
               <div class = "users-selection">
-                <%= gravatar_for user, size: 50 %>
-                <%= link_to user.name, user %>
-                
+                <div class = "card_pic card_pic2 col-md-4">
+                  <%= link_to image_tag(user.image.url()), user.image.url %>
+                 </div>                
+                   <%= link_to user.name, user %>
               </div>
           <% end %>
           

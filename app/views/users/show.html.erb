@@ -2,7 +2,9 @@
 
 <% provide(:title, @user.name)%>
 <p>
-  <%= gravatar_for @user %>
+  <div class = "profile_image">
+    <%= link_to image_tag(@user.image.url()), @user.image.url %>
+  </div>
   <%= link_to @user.name, @user %>
 </p>
 

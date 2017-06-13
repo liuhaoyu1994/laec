@@ -27,10 +27,17 @@
               </div>
               <ul class="nav navbar-nav navbar-right">
                 <li  data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/home') || current_page?(root_path) %>"><%= link_to "Home", root_path%></li>
-                <li  data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/projects') %>"><%= link_to "Research", projects_path%></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle <%= 'active' if current_page?('/research') %>" data-toggle="dropdown" href="#">Research
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-left">
+                    <li><%= link_to "Research", "/research"%></li>
+                    <li><%= link_to "Publication", "/publication"%></li>
+                  </ul>
+                </li>
                 <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/facilities') %>"><%= link_to "Facilities", facilities_path%></li>
-                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/teaching') %>"><%= link_to "Teaching", facilities_path%></li>
-                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/about') %>"><%= link_to "About", users_path%></li>
+                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/teaching') %>"><%= link_to "Teaching", '/teaching'%></li>
+                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/about') %>"><%= link_to "About", '/about'%></li>
               </ul>
               
 

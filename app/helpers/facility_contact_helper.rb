@@ -1,0 +1,2 @@
+module FacilityContactHelper
+end

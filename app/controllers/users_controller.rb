@@ -9,6 +9,20 @@ class UsersController < ApplicationController
     @projects  = @articles
   end
   
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+            redirect_to @user
+
+    else
+      render 'edit'
+    end
+  end
+  
   def create
     @user = User.new(user_params)
     if @user.save
@@ -22,7 +36,12 @@ class UsersController < ApplicationController
   end
  
   def index
-   @users = User.all
+    @users = User.all
+    @users_senior = User.where("department = 1")
+    @users_students = User.where("department = 2")
+    @users_members = User.where("department = 3")
+    @users_coop = User.where("department = 4")
+
   end
  
   def destroy
@@ -34,6 +53,12 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :title, :department, :image, :tel)
     end
+    
+    
+    def user_params_2
+      params.require(:user).permit(:name, :email, :title, :department )
+    end
+    
 end

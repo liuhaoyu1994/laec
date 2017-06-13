@@ -6,6 +6,25 @@
   <%= link_to image_tag(@facility.image.url()), @facility.image.url %>
   <%= @facility.title %>
   
+  <ul class = "users-list">
+        <div class = "users-icon">
+          <% @users.each do |user| %>
+              <div class = "users-selection">
+                <div class = "card_pic card_pic2 col-md-4">
+                  <%= link_to image_tag(user.image.url()), user.image.url %>
+                 </div>
+                    <%= link_to user.name, user %>
+
+                   <%= user.email %>
+                   <%= user.tel %>
+              </div>
+
+          <% end %>
+          
+        </div>
+      </ul>
+  
+  
 </p>
 
 

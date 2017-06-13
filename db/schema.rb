@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606174816) do
+ActiveRecord::Schema.define(version: 20170613170316) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "facility_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["facility_id"], name: "index_appointments_on_facility_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
 
   create_table "facilities", force: :cascade do |t|
     t.text     "title"
@@ -22,6 +33,24 @@ ActiveRecord::Schema.define(version: 20170606174816) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "facility_contacts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "facility_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["facility_id"], name: "index_facility_contacts_on_facility_id"
+    t.index ["user_id"], name: "index_facility_contacts_on_user_id"
+  end
+
+  create_table "facility_services", force: :cascade do |t|
+    t.integer  "facility_id"
+    t.integer  "service_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["facility_id"], name: "index_facility_services_on_facility_id"
+    t.index ["service_id"], name: "index_facility_services_on_service_id"
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -91,14 +120,30 @@ ActiveRecord::Schema.define(version: 20170606174816) do
     t.index ["author_id"], name: "index_relationships_on_author_id"
   end
 
+  create_table "services", force: :cascade do |t|
+    t.text     "title"
+    t.text     "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "password_digest"
     t.string   "title"
     t.integer  "department"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "tel"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

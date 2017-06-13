@@ -4,11 +4,78 @@
 
 
 <% if !logged_in? %> 
-  <%= link_to "Log in", login_path %>
+  <p><strong> Senior Staff </strong></p>
+  <% @users_senior.each do |user| %>
+     <div class = "container col-md-12">
+      <div class = "card_pic card_pic2 container col-md-4">
+        <%= link_to image_tag(user.image.url()), user.image.url %>
+       </div>
+      <div class = "card_text container col-md-8">
+       <div class = "card_name">
+        <%= link_to user.name, user %>
+       </div>
+       <div class = "card_title">
+         <span><%= user.title %></span>
+       </div>
+      </div>
+     </div>
+    <% end %>
+    
+  <p><strong> Students </strong></p>
+  <% @users_students.each do |user| %>
+      <div class = "container col-md-12">
+     <div class = "card_pic card_pic2 container col-md-4">
+        <%= link_to image_tag(user.image.url()), user.image.url %>
+       </div>
+      <div class = "card_text container col-md-8">
+       <div class = "card_name">
+        <%= link_to user.name, user %>
+       </div>
+       <div class = "card_title">
+         <span><%= user.title %></span>
+       </div>
+      </div>
+     </div>
+    <% end %>
+    
+  <p><strong> Past Members </strong></p>
+  <% @users_members.each do |user| %>
+      <div class = "container col-md-12">
+      <div class = "card_pic card_pic2 container col-md-4">
+        <%= link_to image_tag(user.image.url()), user.image.url %>
+       </div>
+      <div class = "card_text container col-md-8">
+       <div class = "card_name">
+        <%= link_to user.name, user %>
+       </div>
+       <div class = "card_title">
+         <span><%= user.title %></span>
+       </div>
+      </div>
+     </div>    
+    <% end %>
+    
+  <p><strong> Coop Students </strong></p>
+  <% @users_coop.each do |user| %>
+      <div class = "container col-md-12">
+      <div class = "card_pic card_pic2 container col-md-4">
+        <%= link_to image_tag(user.image.url()), user.image.url %>
+       </div>
+      <div class = "card_text container col-md-8">
+       <div class = "card_name">
+        <%= link_to user.name, user %>
+       </div>
+       <div class = "card_title">
+         <span><%= user.title %></span>
+       </div>
+      </div>
+     </div>    
+    <% end %>
+      <%= link_to "Log in", login_path %>
+
 <% else %>
   <ul class="users">
     <%= link_to current_user.name, current_user, :class => "btn btn-danger col-md-12" %>
-
     <div class = "user_list">
     <% @users.each do |user| %>
       <div class = "user_thumb">

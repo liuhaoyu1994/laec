@@ -15,13 +15,12 @@
  */
 
 @font-face {
-  font-family:"WhitneyBook";
-  src: url(WhitneyBook.ttf) format("truetype");
+  font-family:"WhitneyMedium";
+  src: url(WhitneyMedium.ttf) format("truetype");
 } 
 
 body {
-    font-family:"WhitneyBook";
-    background-color:  #d9d9d9;
+    background-color:  whitesmoke;
 }
 
 #blank{

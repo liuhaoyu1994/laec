@@ -17,22 +17,119 @@
 
 #logo {
   margin-top: 0.5em;
+  margin-bottom: 0.5em;
   height:4.5vw;
   min-height:3em;
 }
-
 .navbar{
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.navbar ul{
+.navbar-collapse>ul{
   position:absolute;
-  width:60%;
+  width:55%;
   bottom:0;
   right:0;
 }
 
+.dropdown-menu{
+  background-color: whitesmoke;
+  
+}
 
+/*test*/
+
+.navbar-default .navbar-nav > li{
+  width:15%;
+  padding-left:0.5em;
+  padding-right:0.5em;
+  font-size:1em;
+  font-weight:bold;
+  text-align:center;
+  transition: .3s ease;
+}
+
+.navbar-default .navbar-nav  li:hover{
+  background-color: #3384d3;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.navbar-default .navbar-nav .active{
+  background-color: #3384d3;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+
+.navbar-default .navbar-nav  li  a{
+  color: #3384d3;
+}
+
+.navbar-default .navbar-nav .active {
+    color: white;
+    background-color:#3384d3;
+
+
+}
+
+.navbar-default .navbar-nav  li  a:hover{
+    background-color:rgba(0,0,0,0);
+    color: white;
+}
+
+.navbar-default .navbar-nav .active a{
+  background-color:rgba(0,0,0,0);
+  color: white;
+}
+
+.navbar-default .navbar-nav  .active  a:hover{
+  background-color:rgba(0,0,0,0);
+  color: white;
+}
+
+.navbar-default .navbar-nav  .active  a:focus{
+  background-color:rgba(0,0,0,0);
+  color: white;
+}
+
+.navbar-default .navbar-nav .open {
+  background-color:#3384d3;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.navbar-default .navbar-nav .open  a:focus{
+  background-color:#3384d3;
+  color: white;
+}
+
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
+
+.dropdown-menu{
+  text-align:left;
+  background-color:whitesmoke;
+  border-width:0;
+}
+
+.navbar-default .navbar-nav .open li a {
+  font-weight:bold;
+  border-width:0.1em;
+  color:#3384d3;
+  background-color:whitesmoke;
+}
+
+.navbar-default .navbar-nav .open li a:hover {
+  color:white;
+  background-color:#3384d3;
+}
+
+
+/*test
 
 .navbar-default .navbar-nav > li{
   width:15%;
@@ -86,6 +183,7 @@
     background-color: #F8F8F8;
     border-color: #E7E7E7;
 }
+*/
 }
 
 

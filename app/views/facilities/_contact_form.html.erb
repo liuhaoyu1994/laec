@@ -1,0 +1,32 @@
+<ul>
+        <div class = "participate_list">
+          <% @users = @users - @facility.users%>
+          <% @users.each do |user| %>
+              <div class = "item">
+              <div class = "card_pic card_pic2 col-md-4">
+                <%= link_to image_tag(user.image.url()), user.image.url %>
+               </div>
+                <%= link_to user.name, user %>
+                <% if user.add?(@facility) %>
+                <% else %>
+                  <%= render partial: "facilities/add", locals: { user: user, facility: @facility} %> 
+                <% end %> 
+              </div>
+          <% end %>
+        </div>
+          <div class = "participate_list">
+
+            <% @facility.users.each do |user| %>
+              <div class = "item">
+              <div class = "card_pic card_pic2 col-md-4">
+                      <%= link_to image_tag(user.image.url()), user.image.url %>
+             </div>
+                  <%= link_to user.name, user %>
+                <% if user.add?(@facility) %>
+                  <%= render partial: "facilities/delete", locals: { user: user, facility: @facility} %> 
+                <% end %> 
+              </div>
+            <% end %>
+          </div>
+        </div>
+</ul>

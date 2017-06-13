@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get 'services/new'
+
+  get 'services/show'
+
+  get 'services/index'
+
+  get 'services/edit'
+
+  get 'services/creat'
+
+  get 'services/destroy'
+
+  get 'services/update'
+
+  get 'facility_contact/create'
+
+  get 'facility_contact/destroy'
+
   get 'static_pages/home'
 
   get 'publish_user_relationships/create'
@@ -17,7 +35,7 @@ Rails.application.routes.draw do
 
   get 'publications/show'
 
-  get 'publications/index'
+  get 'publication' , to: 'publications#index'
 
   get 'publications/edit'
 
@@ -42,16 +60,25 @@ Rails.application.routes.draw do
   get '/newproject', to: 'projects#new'
 
   get '/home', to: 'static_pages#home'
+  
+  get '/teaching', to: 'static_pages#research'
 
-  get '/research', to: 'static_pages#research'
+  get '/ensc283', to: 'static_pages#ENSC283'
+  
+  get '/ensc321', to: 'static_pages#ensc321'
+
+  get '/ensc423', to: 'static_pages#ensc423'
+
+
+  get '/research', to: 'projects#index'
 
   get '/service', to: 'static_pages#service'
 
   get '/about', to:'static_pages#aboutus'
 
-  get    '/login',   to: 'sessions#new'
+  get '/login',   to: 'sessions#new'
   
-  post   '/login',   to: 'sessions#create'
+  post  '/login',   to: 'sessions#create'
   
   delete '/logout',  to: 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -67,6 +94,7 @@ Rails.application.routes.draw do
   resources :projects             
   resources :facilities
   resources :galleries
+  resources :facility_contacts,      only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
   resources :users do
     member do

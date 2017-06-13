@@ -1,19 +1,18 @@
 <% provide(:title, 'All Facilities') %>
 
-<div class = "term_detail">
-  <div class = "topic">All Facilities</div>
-  <div class = "container-fluid">
-    <div class="projects container col-md-12">
+<div class = "term_detail col-md-8 col-md-offset-2">
+  <div class = "detail-page-title">All Facilities</div>
+  <div class = "detail_intro">LAEC seeks to understand and solve fundamental problems at multiscale levels to improve energy conversion efficiency in devices such as compact heat exchangers, fuel cells, batteries, and refrigeration systems. The following highlights some of the current research projects in our group.</div>
+    <div class="projects">
       <% @facilities.each do |facility| %>
-          <div class = "project_brief container col-md-3">
+        <div class = "project_brief">
             <div class = "project_thumb">
-              <%= link_to image_tag(facility.image.url()), facility.image.url %>
+              <%= link_to image_tag(facility.image.url()), facility %>
             </div>
-            <%= link_to facility.title, facility, {:class=>"thumb-title col-md-12"}%>
+            <%= link_to facility.title, facility, {:class=>"thumb-title col-xs-12 col-md-12"}%>
             <%= truncate(facility.description, :length => 250) %>
             <%= link_to "View more", facility%>
           </div>
       <% end %>
     </div>
   </div>
-</div>
