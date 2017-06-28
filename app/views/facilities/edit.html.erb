@@ -1,5 +1,35 @@
 <div>
   <div id = "edit_form3"><%= render partial: 'contact_form'%></div>
+  
+   <%= form_for(@facility) do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+      
+      
+      <%= f.label :category %>
+      <%= f.text_field :categotry, class: 'form-control' %>
+
+      <ul>
+      <% @cate_array.each do |c| %>
+        <li><%= c %></li>
+      <% end %>
+      </ul>
+
+      <%= f.label :model %>
+      <%= f.text_field :model, class: 'form-control' %>
+
+      <%= f.label :manufactory %>
+      <%= f.text_field :make, class: 'form-control' %>
+      
+
+      <%= f.file_field :image %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
   <%= link_to 'Show', @facility %> |
   <%= link_to 'Back', facilities_path %>
   

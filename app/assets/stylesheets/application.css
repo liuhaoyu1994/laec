@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ 
  */
 
 @font-face {
@@ -19,8 +20,22 @@
   src: url(WhitneyMedium.ttf) format("truetype");
 } 
 
-body {
-    background-color:  whitesmoke;
+@font-face {
+  font-family:"WhitneyBlack";
+  src: url(whitney-black.ttf) format("truetype");
+} 
+
+.main-bodytext {
+  background-color:whitesmoke;
+}
+
+body{
+    position: relative;
+  
+}
+
+.main-bodytext{
+  font-family: "WhitneyMedium";
 }
 
 #blank{

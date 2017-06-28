@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-    
   end
  
   def index
@@ -45,20 +44,18 @@ class UsersController < ApplicationController
   end
  
   def destroy
-    log_out
-    redirect_to root_url
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
   end
   
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :title, :department, :image, :tel)
+      params.require(:user).permit(:name, :last_name, :email, :password,
+                                   :password_confirmation, :title, :department, :image, :tel, :bio)
     end
     
-    
-    def user_params_2
-      params.require(:user).permit(:name, :email, :title, :department )
-    end
+  
     
 end

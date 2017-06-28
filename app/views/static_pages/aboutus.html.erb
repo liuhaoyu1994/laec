@@ -3,18 +3,93 @@
 
 
 <% if !logged_in? %> 
-  <div class = "all_staff col-md-8 col-md-offset-2">
-       <div class = "col-md-12">
+<div class = "side-nav col-md-2">
+  <div class = "side-nav-list">
+        <p><%= link_to "Principle Investigator", :anchor => "Principle" %></p>
+        <p><%= link_to "Senior Staff", :anchor => "Senior" %></p>
+        <p><%= link_to "Students", :anchor => "Students" %></p>
+        <p><%= link_to "Coop Students", :anchor => "Coop" %></p>
+        <p><%= link_to "Past Members", :anchor => "Past" %></p>
 
+  </div>
+        <%= link_to "Log in", login_path, :class => "btn btn-success" %>
+
+</div>
+
+
+
+  <div class = "all_staff col-md-8 col-md-offset-2">
+   
+
+  <div class = "team-news col-md-6">
+    <div class= "slideshow container col-md-6" style="max-width:500px">
+     <% @news_team.each do |news| %>
+      <div class = "mySlides2" id = "slide-<%= news.title.gsub(/\s+/, "") %>" onclick ="carousel(this.id)" style = "cursor:pointer">
+       <%= news.title %>
+      </div>
+     <% end %>
+    </div>
+  </div>
+  
+    <div class = "team-news col-md-6">
+    <div class= "slideshow container col-md-6" style="max-width:500px">
+
+     <% @news_team.each do |news| %>
+      <div class = "mySlides" id = "slide-<%= news.title.gsub(/\s+/, "") %>-image">
+       <%= link_to image_tag(news.image.url()), news%>
+      </div>
+     <% end %>
+    </div>
+  </div>
+  
+ <div class = "col-md-12">
+ <div class = "anchor_blank" id = "Principle"></div>
+
+  <p><strong> Principle Investigator </strong></p>
+  <% @users_principle.each do |user| %>
+     <div class = "each_item container col-md-5">
+     <div class = "card_pic3 col-md-5  col-sm-6 col-xs-6">
+      <br>
+        <%= link_to image_tag(user.image.url()), user.image.url %>
+       </div>
+      <div class = "card_text col-md-7 col-sm-6 col-xs-6">
+       <div class = "card_name">
+              <br>
+
+        <%= user.name %><br>
+        <%= user.last_name %>
+       </div>
+       <div class = "card_title">
+         <span><%= user.title %></span>
+       </div>
+        <div class = "card_title">
+         <span><%= user.email %></span>
+       </div>
+       <div class = "card_title">
+         <span><%= user.tel %></span>
+       </div>
+      </div>
+    </div>
+      <div class = "card_text col-md-7">
+       <div class  = "card_title card_bio">
+          <span><%= user.bio %></span>
+       </div>
+     </div>
+    <% end %>
+      </div>
+     
+  <div class = "staff-collection container col-md-12">
+  <div class = "anchor_blank" id = "Senior"></div>
   <p><strong> Senior Staff </strong></p>
   <% @users_senior.each do |user| %>
-      <div class = "each_item container col-md-4">
-     <div class = "card_pic card_pic2 col-md-4">
+     <div class = "each_item container col-md-4 col-sm-6 col-xs-6">
+     <div class = "card_pic2 col-md-5 col-sm-4 col-xs-12">
         <%= link_to image_tag(user.image.url()), user.image.url %>
        </div>
-      <div class = "card_text">
+      <div class = "card_text col-md-7 col-sm-8 col-xs-12">
        <div class = "card_name">
-        <%= link_to user.name, user %>
+        <%= user.name %><br>
+        <%= user.last_name %>
        </div>
        <div class = "card_title">
          <span><%= user.title %></span>
@@ -22,26 +97,34 @@
         <div class = "card_title">
          <span><%= user.email %></span>
        </div>
-       
        <div class = "card_title">
          <span><%= user.tel %></span>
        </div>
+      <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>
       </div>
+    </div>
+    <div id="user-<%= user.id %>" class="collapse">
+      <div class = "card_text col-md-12 col-sm-12 col-xs-12">
+       <div class  = "card_title card_bio">
+          <span><%= user.bio %></span>
+       </div>
      </div>
+    </div>
     <% end %>
       </div>
   
-    <div class = "col-md-12">
-
+  <div class = "staff-collection container col-md-12">
+  <div class = "anchor_blank" id = "Students"></div>
   <p><strong> Students </strong></p>
   <% @users_students.each do |user| %>
-      <div class = "each_item container col-md-4">
-     <div class = "card_pic card_pic2 col-md-4">
+     <div class = "each_item container col-md-4 col-sm-6 col-xs-6">
+     <div class = "card_pic2 col-md-5 col-sm-4 col-xs-12">
         <%= link_to image_tag(user.image.url()), user.image.url %>
        </div>
-      <div class = "card_text">
+      <div class = "card_text col-md-7 col-sm-8 col-xs-12">
        <div class = "card_name">
-        <%= link_to user.name, user %>
+        <%= user.name %><br>
+        <%= user.last_name %>
        </div>
        <div class = "card_title">
          <span><%= user.title %></span>
@@ -49,56 +132,34 @@
         <div class = "card_title">
          <span><%= user.email %></span>
        </div>
-       
        <div class = "card_title">
          <span><%= user.tel %></span>
        </div>
+      <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>
       </div>
+    </div>
+    <div id="user-<%= user.id %>" class="collapse">
+      <div class = "card_text col-md-12 col-sm-12 col-xs-12">
+       <div class  = "card_title card_bio">
+          <span><%= user.bio %></span>
+       </div>
      </div>
+    </div>
     <% end %>
       </div>
-
-
-    <div class = "col-md-12">
-
-  <p><strong> Past Members </strong></p>
-  <% @users_members.each do |user| %>
-       <div class = "each_item container col-md-4">
-     <div class = "card_pic card_pic2 col-md-4">
-        <%= link_to image_tag(user.image.url()), user.image.url %>
-       </div>
-      <div class = "card_text">
-       <div class = "card_name">
-        <%= link_to user.name, user %>
-       </div>
-       <div class = "card_title">
-         <span><%= user.title %></span>
-       </div>
-        <div class = "card_title">
-         <span><%= user.email %></span>
-       </div>
-       
-       <div class = "card_title">
-         <span><%= user.tel %></span>
-       </div>
-      </div>
-     </div>
-    <% end %>
-      </div>
-
-    
-        <div class = "col-md-12">
-
-    
+      
+  <div class = "staff-collection container col-md-12">
+   <div class = "anchor_blank" id = "Coop"></div>
   <p><strong> Coop Students </strong></p>
   <% @users_coop.each do |user| %>
-       <div class = "each_item container col-md-4">
-     <div class = "card_pic card_pic2 col-md-4">
+     <div class = "each_item container col-md-4 col-sm-6 col-xs-6">
+     <div class = "card_pic2 col-md-5 col-sm-4 col-xs-12">
         <%= link_to image_tag(user.image.url()), user.image.url %>
        </div>
-      <div class = "card_text">
+      <div class = "card_text col-md-7 col-sm-8 col-xs-12">
        <div class = "card_name">
-        <%= link_to user.name, user %>
+        <%= user.name %><br>
+        <%= user.last_name %>
        </div>
        <div class = "card_title">
          <span><%= user.title %></span>
@@ -106,26 +167,82 @@
         <div class = "card_title">
          <span><%= user.email %></span>
        </div>
-       
        <div class = "card_title">
          <span><%= user.tel %></span>
        </div>
+      <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>
       </div>
+    </div>
+    <div id="user-<%= user.id %>" class="collapse">
+      <div class = "card_text col-md-12 col-sm-12 col-xs-12">
+       <div class  = "card_title card_bio">
+          <span><%= user.bio %></span>
+       </div>
      </div>
+    </div>
     <% end %>
       </div>
+      
+  <div class = "staff-collection container col-md-12">
+  <div class = "anchor_blank" id = "Past"></div>
+  <p><strong> Past Members </strong></p>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">View More</button>
+  <div id="demo" class="collapse">
+  <% @users_members.each do |user| %>
+     <div class = "each_item container col-md-4 col-sm-6 col-xs-6">
+     <div class = "card_pic2 col-md-5 col-sm-4 col-xs-12">
+        <%= link_to image_tag(user.image.url()), user.image.url %>
+       </div>
+      <div class = "card_text col-md-7 col-sm-8 col-xs-12">
+       <div class = "card_name">
+        <%= user.name %><br>
+        <%= user.last_name %>
+       </div>
+       <div class = "card_title">
+         <span><%= user.title %></span>
+       </div>
+        <div class = "card_title">
+         <span><%= user.email %></span>
+       </div>
+       <div class = "card_title">
+         <span><%= user.tel %></span>
+       </div>
+      <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>
+      </div>
+    </div>
+    <div id="user-<%= user.id %>" class="collapse">
+      <div class = "card_text col-md-12 col-sm-12 col-xs-12">
+       <div class  = "card_title card_bio">
+          <span><%= user.bio %></span>
+       </div>
+     </div>
+    </div>
+    <% end %>
+      </div>
+
+
   
     
-      <%= link_to "Log in", login_path %>
 
 <% else %>
+  <%= link_to 'New Research', new_project_path, :class => "btn btn-success" %>
+  <%= link_to 'New Publication', new_publication_path, :class => "btn btn-success" %>
+  <%= link_to 'New Research Partner', new_research_partner_path, :class => "btn btn-success"%>
+  <%= link_to 'New Facilities', new_publication_path, :class => "btn btn-success" %>
+  <%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-danger" %>
+
   <ul class="users">
-    <%= link_to current_user.name, current_user, :class => "btn btn-danger col-md-12" %>
     <div class = "user_list">
     <% @users.each do |user| %>
-      <div class = "user_thumb">
-        <%= gravatar_for user, size: 50 %>
-        <%= link_to user.name, user %>
+      <div class = "card_pic_y col-md-1">
+        <div class = "card_pic card_pic_x col-md-12">
+          <%= link_to image_tag(user.image.url()), user %>
+        </div>
+        <div class = "col-md-12">
+          <%= link_to user.name, user %>
+          <%= link_to user.last_name, user %>
+          <%= link_to 'Edit', edit_user_path(user), :class => "btn btn-default"%>
+        </div>
       </div>    
     <% end %>
     </div>
@@ -133,4 +250,49 @@
 
 <% end %>
 
+
 </div>
+
+
+<script>
+
+$( document ).ready(function() {
+ var x = document.getElementsByClassName("mySlides");
+ var y = document.getElementsByClassName("mySlides2");
+ if (x.length != 0){
+     for (i = 0; i < x.length; i++) {
+         x[i].style.opacity = 0;
+         y[i].style.fontWeight = "normal";
+         y[i].style.borderLeft = "none";
+         y[i].style.color = "black";
+     }
+     x[0].style.opacity = 1;
+     y[0].style.fontWeight = "bold";
+     y[0].style.borderLeft = "solid";
+     y[0].style.color = "#3384d3";
+ }    
+ 
+});
+
+function carousel(a) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var y = document.getElementsByClassName("mySlides2");
+    var z = document.getElementById(a);
+    var m = a + "-image";
+    var n = document.getElementById(m);
+    if (x.length != 0){
+     for (i = 0; i < x.length; i++) {
+         x[i].style.opacity = 0;
+         y[i].style.fontWeight = "normal";
+         y[i].style.borderLeft = "none";
+         y[i].style.color = "black";
+     }
+     n.style.opacity = 1;
+     z.style.fontWeight = "bold";
+     z.style.borderLeft = "solid";
+     z.style.color = "#3384d3";
+     }
+}
+
+</script>

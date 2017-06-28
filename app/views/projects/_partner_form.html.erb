@@ -1,0 +1,25 @@
+<ul>
+        <div class = "participate_list">
+          <% @research_partners = @research_partners - @project.research_partners%>
+          <% @research_partners.each do |research_partner| %>
+              <div class = "item">
+                <%= link_to image_tag(research_partner.image), research_partner %>
+                <strong><%= link_to research_partner.title, research_partner %></strong>
+                <% if @project.partner?(research_partner) %>
+                <% else %>
+                  <%= render partial: "projects/partner", locals: { research_partner: research_partner, project: @project} %> 
+                <% end %> 
+              </div>
+          <% end %>
+        </div>
+          <div class = "participate_list">
+            <% @project.research_partners.each do |research_partner| %>
+              <div class = "item">
+                <%= link_to image_tag(research_partner.image), research_partner %>
+                <strong><%= link_to research_partner.title, research_partner %></strong>
+                <%= render partial: "projects/breakup", locals: { research_partner: research_partner, project: @project} %> 
+              </div>
+            <% end %>
+          </div>
+        </div>
+</ul>

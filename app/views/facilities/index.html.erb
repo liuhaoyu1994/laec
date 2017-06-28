@@ -1,18 +1,55 @@
 <% provide(:title, 'All Facilities') %>
 
-<div class = "term_detail col-md-8 col-md-offset-2">
+<div class = "side-nav col-md-2">
+  <p style = "font-size:2em; "><strong>Quick Index</strong></p>
+  <% @cate_array.each do |array| %>
+    <div class = "side-nav-list">
+      <%= link_to array, facilities_path(:anchor => "facility-#{array.gsub(/\s+/, "")}") %>
+    </div>
+  <% end %>
+
+</div>
+
+<div class = "term_detail col-md-10 col-md-offset-2">
   <div class = "detail-page-title">All Facilities</div>
-  <div class = "detail_intro">LAEC seeks to understand and solve fundamental problems at multiscale levels to improve energy conversion efficiency in devices such as compact heat exchangers, fuel cells, batteries, and refrigeration systems. The following highlights some of the current research projects in our group.</div>
+  <div class = "detail_intro">Laboratory for Alternative Energy Conversion (LAEC) provides analysis, testing, and material characterization services in the general area of energy systems. LAEC is equipped with a collection of state-of-the-art infrastructure and testing capabilities to assure high-quality tests in a safe environment. The following provides a list of available services. For more information please see our brochure or contact Dr. Bahrami (mbahrami@sfu.ca).</div>
     <div class="projects">
-      <% @facilities.each do |facility| %>
-        <div class = "project_brief">
-            <div class = "project_thumb">
-              <%= link_to image_tag(facility.image.url()), facility %>
-            </div>
-            <%= link_to facility.title, facility, {:class=>"thumb-title col-xs-12 col-md-12"}%>
-            <%= truncate(facility.description, :length => 250) %>
-            <%= link_to "View more", facility%>
-          </div>
+      <% @cate_array.each do |array| %>
+            <div class = "all_staff container col-md-12">
+
+       <div class = "each_item container col-md-12">
+        <div class = "anchor_blank" id="facility-<%=array.gsub(/\s+/, "")%>"></div>
+        
+          <p><strong><%= array %></strong></p>
+            <% @facilities.each do |facility| %>
+              <% if facility.categotry == array %>
+              <!--- --->
+                 <div class = "each_item each_facility container col-md-4">
+                   <div class = "card_pic4 col-md-12">
+                      <%= link_to image_tag(facility.image.url()), facility %>
+                     </div>
+                    <div class = "card_text col-md-12">
+                     <div class = "card_name card_name2">
+                      <%= facility.title %>
+                     </div>
+                     <div class = "card_title card_name2">
+                        <span><%= facility.make %>, <%= facility.model %></span><br>
+                     </div>
+                     <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#facility-<%=facility.id%>">Learn More <span>&rarr;</span></button>
+                    </div>
+                  </div>
+                  <div id="facility-<%=facility.id%>" class="collapse">
+                    <div class = "card_text col-md-12">
+                     <div class  = "card_title card_bio">
+                        <span><%= facility.description %></span>
+                     </div>
+                   </div>
+                  </div>
+              <% end %>
+            <% end %>
+        </div>
+        </div>
       <% end %>
+
     </div>
   </div>

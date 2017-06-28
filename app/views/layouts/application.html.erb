@@ -5,6 +5,7 @@
   <title>Laboratory for Alternative Energy Conversion</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
@@ -28,16 +29,29 @@
               <ul class="nav navbar-nav navbar-right">
                 <li  data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/home') || current_page?(root_path) %>"><%= link_to "Home", root_path%></li>
                 <li class="dropdown">
-                  <a class="dropdown-toggle <%= 'active' if current_page?('/research') %>" data-toggle="dropdown" href="#">Research
+                  <a class="dropdown-toggle <%= 'active' if (current_page?('/research')||current_page?('/publication')) %>" data-toggle="dropdown" href="#">Research&#9663;
                   </a>
                   <ul class="dropdown-menu dropdown-menu-left">
                     <li><%= link_to "Research", "/research"%></li>
-                    <li><%= link_to "Publication", "/publication"%></li>
+                    <li><%= link_to "Publications", "/publication"%></li>
+                    <li><%= link_to "Research Partners", "/research_partners"%></li>
                   </ul>
                 </li>
-                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/facilities') %>"><%= link_to "Facilities", facilities_path%></li>
+                
+
+                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/facilities') %>"><%= link_to "Facilities", '/facilities'%></li>
                 <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/teaching') %>"><%= link_to "Teaching", '/teaching'%></li>
-                <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/about') %>"><%= link_to "About", '/about'%></li>
+                
+                <li class="dropdown">
+                  <a class="dropdown-toggle <%= 'active' if (current_page?('/about')||current_page?('/news')) %>" data-toggle="dropdown" href="#">About&#9663;
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-left">
+                    <li><%= link_to "Team", "/about"%></li>
+                    <li><%= link_to "News", "/news"%></li>
+                    <li><%= link_to "Location", "/location"%></li>
+
+                  </ul>
+                </li>
               </ul>
               
 
@@ -46,12 +60,43 @@
     </header>
   </div>
 
-<div class="container-fluid">
-<div id="blank"></div>
+      <div id="blank"></div>
+      <div class = "bodytext">
+        <div class = "main-bodytext">
+          <%= yield %>
+        </div>
+        <div class="footer col-md-12">
+          <div class = "footer-content col-md-5">
+          <%= link_to image_tag("LOGO_white_text.png", alt: "Logo", id:"footer-logo2"),
+                                                        root_path %>               
+                                                        
+          <%= link_to image_tag("55av3ufwn2.png", alt: "Logo", id:"footer-logo1"),
+                                                        root_path %>
+          </div>                                              
+          <div class = "footer-content footer-content2 col-md-3">
+            <%= link_to image_tag("Twitter.png", alt: "Logo", id:"footer-logo3"),
+                                            root_path %> 
+            <%= link_to image_tag("Facebook.png", alt: "Logo", id:"footer-logo3"),
+                                            root_path %>
+            <%= link_to image_tag("Google.png", alt: "Logo", id:"footer-logo3"),
+                                            root_path %> 
+            <%= link_to image_tag("Linkedin.png", alt: "Logo", id:"footer-logo3"),
+                                            root_path %>                                             
+            <p><%= link_to "Contact", '/about' %></p>      
+            <p><%= link_to "Login", '/login' %></p>                                               
+          </div>
+          <div class = "footer-content col-md-4">
+              <div class  = "footer-content3">
+              <span><strong>Address:</strong></span><br>
+              <span>#190A-13450 102 Ave<br>Surrey, BC<br>V3T 5X3<br></span>
+              <br>
+              <span style = "font-size:0.8em">© 2013 Dr. M. Bahrami. Laboratoy for Alternative Energy Conversion. Simon Fraser University.</span>
+              </div>
+          </div>
+        </div>
+        
+      </div>
 
-    <div class="container col-md-12">
-      <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
-</div>
 </body>
+
 </html>

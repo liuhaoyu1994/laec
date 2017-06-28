@@ -1,23 +1,27 @@
 <% provide(:title, 'All projects') %>
 <div class = "side-nav col-md-2">
+    <p style = "font-size:2em; "><strong>Quick Index</strong></p>
+
   <% @projects.each do |project| %>
       <div class = "side-nav-list">
-        <%= link_to project.title, project, {:class=>"nav-index"}%>
+        <%= link_to project.title, projects_path(:anchor => "project-#{project.id}") %>
       </div>
   <% end %>
+
 </div>
-<div class = "term_detail col-md-8">
+
+<div class = "term_detail col-md-10 col-md-offset-2">
   <div class = "detail-page-title">Research</div>
   <div class = "detail_intro">LAEC seeks to understand and solve fundamental problems at multiscale levels to improve energy conversion efficiency in devices such as compact heat exchangers, fuel cells, batteries, and refrigeration systems. The following highlights some of the current research projects in our group.</div>
 
   <div class="projects">
     <% @projects.each do |project| %>
-        <div class = "project_brief">
+        <div class = "project_brief" id="project-<%= project.id %>">
           <div class = "project_thumb">
             <%= link_to image_tag(project.image.url()), project%>
           </div>
           <%= link_to project.title, project, {:class=>"thumb-title col-xs-12 col-md-12"}%>
-          <%= truncate(project.description, :length => 250) %>
+          <%= truncate(project.description, :length => 220) %>
           <%= link_to "View more", project%>
         </div>
     <% end %>

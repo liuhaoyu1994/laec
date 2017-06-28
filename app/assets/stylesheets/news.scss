@@ -1,0 +1,56 @@
+// Place all the styles related to the News controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.news_list_brief{
+  display:block;
+  margin:1em;
+}
+
+.news_list_brief img{
+  width:100%;
+}
+
+.news_index{
+    margin: auto;
+}
+
+.block{
+  border-left: solid;
+  padding-left:1em;
+    border-color:#3384d3;
+}
+
+.news-title{
+  
+}
+
+.index-image{
+}
+
+.index-image img{
+  width:100%;
+}
+
+.information>p {
+  border-top:solid;
+  border-color: rgba(0,0,0,0.2);
+  margin-top: 1em;
+  font-size:2em;
+}
+
+.btn-custom5{
+  background-color:white;
+  border-width:0.1em;
+  opacity: 0.8;
+}
+
+.btn-custom5 span{
+    transition: ease .5s;
+
+  opacity:0;
+}
+
+.btn-custom5:hover span{
+  opacity:1;
+}

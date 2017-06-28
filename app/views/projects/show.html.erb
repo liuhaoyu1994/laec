@@ -9,29 +9,54 @@
   <div class = "project-image">
     <%= link_to image_tag(@project.image.url()), @project.image.url %>
   </div>
-  <span class="project-description col-md-12"><%= @project.description  %></span>
+  <div class="project-description col-md-12"><span class = "col-md-10 col-md-offset-1"><%= simple_format(@project.description) %></span></div>
   <span class="user col-md-10 topic">Related Publication:</span>
   <ul>
     <% @project.publications.each do |publication| %>
-      <li><%= link_to publication.title, publication %></li>
+      <li class = "col-md-12"><%= link_to publication.title, publication %></li>
     <% end %>
   </ul>
+  
+  <span class="user col-md-10 topic">Image Galleries:</span>
   <% @project.galleries.each do |pic| %>
     <div class = "galleries"><%= link_to image_tag(pic.image.url()), pic.image.url %></div>
   <% end %>
-      <ul class = "users-list">
+  <span class="user col-md-10 topic">Participants:</span>
+      <ul class = "">
         <div class = "users-icon">
           <% @users.each do |user| %>
               <div class = "users-selection">
-                <div class = "card_pic card_pic2 col-md-4">
+                <div class = "card_pic2 card_pic3">
                   <%= link_to image_tag(user.image.url()), user.image.url %>
                  </div>                
                    <%= link_to user.name, user %>
+                   <%= link_to user.last_name, user %>
+
               </div>
           <% end %>
-          
+      
+    </div>
+  </ul>
+  <span class="user col-md-10 topic">Research Patners:</span>
+      <div class = "container col-md-4">
+        <div class = "container col-md-12">
+          <%= image_tag(@research_partners.first.image.url()) %>
         </div>
-      </ul>
-    <%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-default" %>
+        <div class = "container col-md-12">
+          <%= @research_partners.first.title %>
+        </div>
+      </div>
+
+      <div class = "container col-md-4">
+         <div class = "container col-md-12">
+          <%= image_tag(@research_partners.second.image.url()) %>
+        </div>
+        <div class = "container col-md-12">
+          <%= @research_partners.second.title %>
+        </div>
+      </div>
+ 
+  <div class = "col-md-12"></div>
+<%= link_to 'Edit', edit_project_path(@project), :class => "col-md-12 btn btn-info" %>
 
 </div>

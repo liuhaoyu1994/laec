@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'partner_relations/create'
+
+  get 'partner_relations/destroy'
+
+  resources :research_partners
+  resources :news
   get 'services/new'
 
   get 'services/show'
@@ -58,6 +64,9 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
 
   get '/newproject', to: 'projects#new'
+  
+  get '/newfacility', to: 'facilities#new'
+
 
   get '/home', to: 'static_pages#home'
   
@@ -69,10 +78,13 @@ Rails.application.routes.draw do
 
   get '/ensc423', to: 'static_pages#ensc423'
 
-
+  get '/partners', to: 'research_partners#index'
+  
   get '/research', to: 'projects#index'
 
-  get '/service', to: 'static_pages#service'
+  get '/services', to: 'services#index'
+
+  get '/location', to: 'static_pages#service'
 
   get '/about', to:'static_pages#aboutus'
 
@@ -87,10 +99,14 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
   
+  resources :static_pages
+  resources :research_partners
+  resources :partner_relations
   resources :publish_user_relationships
   resources :publish_relationships
   resources :publications
   resources :users
+  resources :services             
   resources :projects             
   resources :facilities
   resources :galleries

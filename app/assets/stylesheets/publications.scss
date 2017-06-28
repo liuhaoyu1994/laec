@@ -1,3 +1,34 @@
 // Place all the styles related to the publications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.publication_brief{
+  border-bottom:solid;
+  border-color: rgba(0,0,0,0.2);
+  border-width:0.1em;
+  width:100%;
+  margin: 2em;
+  text-align: left;
+}
+
+.publication_brief a{
+  width:100%;
+  font-size:1.2em;
+  font-weight:bold;
+}
+
+.pub_year p strong{
+  margin-top:1em;
+  font-size:2em;
+  position:relative;
+}
+
+.pub_year{
+  padding-left:1em;
+  border-width:0.2em;
+  border-left:solid;
+  border-color:#3384d3;
+}
+
+
+  

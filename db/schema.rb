@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613170316) do
+ActiveRecord::Schema.define(version: 20170628195039) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "user_id"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20170613170316) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "categotry"
+    t.string   "model"
+    t.string   "make"
   end
 
   create_table "facility_contacts", force: :cascade do |t|
@@ -65,6 +68,29 @@ ActiveRecord::Schema.define(version: 20170613170316) do
     t.index ["project_id"], name: "index_galleries_on_project_id"
   end
 
+  create_table "news", force: :cascade do |t|
+    t.text     "title"
+    t.text     "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "categoty"
+    t.integer  "year"
+    t.string   "month"
+  end
+
+  create_table "partner_relations", force: :cascade do |t|
+    t.integer  "research_partner_id"
+    t.integer  "project_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["project_id"], name: "index_partner_relations_on_project_id"
+    t.index ["research_partner_id"], name: "index_partner_relations_on_research_partner_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.string   "image_file_name"
@@ -76,6 +102,7 @@ ActiveRecord::Schema.define(version: 20170613170316) do
     t.integer  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "highlight"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -88,7 +115,7 @@ ActiveRecord::Schema.define(version: 20170613170316) do
     t.datetime "file_updated_at"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.date     "time"
+    t.integer  "time"
   end
 
   create_table "publish_relationships", force: :cascade do |t|
@@ -120,6 +147,17 @@ ActiveRecord::Schema.define(version: 20170613170316) do
     t.index ["author_id"], name: "index_relationships_on_author_id"
   end
 
+  create_table "research_partners", force: :cascade do |t|
+    t.text     "title"
+    t.text     "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.text     "title"
     t.text     "description"
@@ -144,6 +182,8 @@ ActiveRecord::Schema.define(version: 20170613170316) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "tel"
+    t.text     "bio"
+    t.string   "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

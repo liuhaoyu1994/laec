@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  research_partner: one
+  project: one
+
+two:
+  research_partner: two
+  project: two

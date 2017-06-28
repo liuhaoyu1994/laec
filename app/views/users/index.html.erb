@@ -1,5 +1,5 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<h1>All Members</h1>
 
 
 
@@ -13,6 +13,7 @@
       <div class = "card_text container col-md-8">
        <div class = "card_name">
         <%= link_to user.name, user %>
+        <%= link_to user.last_name, user %>
        </div>
        <div class = "card_title">
          <span><%= user.title %></span>
@@ -30,7 +31,8 @@
       <div class = "card_text container col-md-8">
        <div class = "card_name">
         <%= link_to user.name, user %>
-       </div>
+        <%= link_to user.last_name, user %>
+        </div>
        <div class = "card_title">
          <span><%= user.title %></span>
        </div>
@@ -47,7 +49,8 @@
       <div class = "card_text container col-md-8">
        <div class = "card_name">
         <%= link_to user.name, user %>
-       </div>
+        <%= link_to user.last_name, user %>
+        </div>
        <div class = "card_title">
          <span><%= user.title %></span>
        </div>
@@ -64,7 +67,8 @@
       <div class = "card_text container col-md-8">
        <div class = "card_name">
         <%= link_to user.name, user %>
-       </div>
+        <%= link_to user.last_name, user %>
+        </div>
        <div class = "card_title">
          <span><%= user.title %></span>
        </div>
@@ -74,13 +78,24 @@
       <%= link_to "Log in", login_path %>
 
 <% else %>
+  <%= link_to 'New Research', new_project_path, :class => "btn btn-success" %>
+  <%= link_to 'New Publication', new_publication_path, :class => "btn btn-success" %>
+  <%= link_to 'New Research Partner', new_research_partner_path, :class => "btn btn-success"%>
+  <%= link_to 'New Facilities', new_publication_path, :class => "btn btn-success" %>
+
   <ul class="users">
     <%= link_to current_user.name, current_user, :class => "btn btn-danger col-md-12" %>
     <div class = "user_list">
     <% @users.each do |user| %>
-      <div class = "user_thumb">
-        <%= gravatar_for user, size: 50 %>
-        <%= link_to user.name, user %>
+      <div class = "card_pic_y col-md-1">
+        <div class = "card_pic card_pic_x col-md-12">
+          <%= link_to image_tag(user.image.url()), user %>
+        </div>
+        <div class = "col-md-12">
+          <%= link_to user.name, user %>
+          <%= link_to user.last_name, user %>
+          <%= link_to 'Edit', edit_user_path(user), :class => "btn btn-default"%>
+        </div>
       </div>    
     <% end %>
     </div>

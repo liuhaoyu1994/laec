@@ -27,7 +27,7 @@
 
 .navbar-collapse>ul{
   position:absolute;
-  width:55%;
+  width:70%;
   bottom:0;
   right:0;
 }
@@ -40,9 +40,7 @@
 /*test*/
 
 .navbar-default .navbar-nav > li{
-  width:15%;
-  padding-left:0.5em;
-  padding-right:0.5em;
+  width:18%;
   font-size:1em;
   font-weight:bold;
   text-align:center;
@@ -105,6 +103,11 @@
   color: white;
 }
 
+.navbar-default .navbar-nav .open  a:focus {
+  background-color:#3384d3;
+  color: white;
+}
+
 .navbar-default {
     background-color: #F8F8F8;
     border-color: #E7E7E7;
@@ -128,66 +131,13 @@
   background-color:#3384d3;
 }
 
-
-/*test
-
-.navbar-default .navbar-nav > li{
-  width:15%;
-  padding-left:0.5em;
-  padding-right:0.5em;
-  font-size:1em;
-  font-weight:bold;
-  text-align:center;
-  transition: .3s ease;
-}
-
-.navbar-default .navbar-nav > li:hover{
-  background-color: #a6192e;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
-
-.navbar-default .navbar-nav .active{
-  background-color: #a6192e;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
-
-.navbar-default .navbar-nav > li > a{
-
-  color: #a6192e;
-}
-
-.navbar-default .navbar-nav > li > a:hover{
-    background-color:rgba(0,0,0,0);
-
-  color: white;
-}
-
-.navbar-default .navbar-nav .active a{
-  background-color:rgba(0,0,0,0);
-  color: white;
-}
-
-.navbar-default .navbar-nav > .active > a:hover{
-  background-color:rgba(0,0,0,0);
-  color: white;
-}
-
-.navbar-default .navbar-nav > .active > a:focus{
-  background-color:rgba(0,0,0,0);
-  color: white;
-}
-
-.navbar-default {
-    background-color: #F8F8F8;
-    border-color: #E7E7E7;
-}
-*/
+  
 }
 
 
 @media screen and (max-width: 769px) {
+
+
 
 #logo5{
   width:15%;
@@ -200,8 +150,6 @@
     display:none;
   }
 }
-
-
 
 .navbar-toggle {
   display: block;
@@ -231,6 +179,9 @@
 .collapse.in ul{
 }
 	
+.navbar-default .navbar-nav > .open > a:hover{
+  color:#3384d3;
+}	
 	
 #logo {
   display: none;
@@ -244,9 +195,9 @@
 }
 
 .navbar .ul{
-  
   float:left;
 }
+
 .navbar-default .navbar-nav > li{
   font-size:1.3em;
   font-weight:bold;
@@ -256,46 +207,37 @@
 }
 
 .navbar-default .navbar-nav > li:hover{
-  background-color: #a6192e;
+  background-color: #3384d3;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 
 .navbar-default .navbar-nav .active{
-  background-color: #a6192e;
+  color: #3384d3;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
-
+  background-color: white;
 }
 
 .navbar-default .navbar-nav > li > a{
+  color: #3384d3;
+}
 
-  color: #a6192e;
+.navbar-default .navbar-nav > .open > a:focus {
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a{
+  color:white;
+}
+
+.navbar-default .navbar-nav > .active > a{
+    color:#3384d3;
 }
 
 .navbar-default .navbar-nav > li > a:hover{
-    background-color:rgba(0,0,0,0);
+  box-shadow:none;
+  background-color:white;
+  color:#3384d3;
 
-  color: white;
-}
-
-.navbar-default .navbar-nav .active a{
-  background-color:rgba(0,0,0,0);
-  color: white;
-}
-
-.navbar-default .navbar-nav > .active > a:hover{
-  background-color:rgba(0,0,0,0);
-  color: white;
-}
-
-.navbar-default .navbar-nav > .active > a:focus{
-  background-color:rgba(0,0,0,0);
-  color: white;
-}
-
-.navbar-default {
-    background-color: #F8F8F8;
-    border-color: #E7E7E7;
 }
 }
 
@@ -355,7 +297,69 @@ input {
 }
 
 .item{
-  width:20%;
+  width:30%;
   display:inline-block;
   padding-top:2em;
+}
+
+.item img{
+  width: 100%;
+}
+
+.footer{
+  color:whitesmoke;
+  background-color:#1a1919;
+}
+
+.footer a{
+    font-weight:bold;
+    margin:auto;
+    width:100%;
+    text-align:center;
+    color:whitesmoke;
+
+}
+
+#footer-logo1{
+  width:25em;
+}
+
+.footer-content{
+  padding-top:1em;
+}
+
+#footer-logo2{
+  border-right:solid;
+  padding-right:1em;
+  border-color:rgba(255,255,255,0.5);
+  border-width:0.1em;
+  width:15em;
+}
+
+#footer-logo3{
+  transition: 0.5s ease;
+  padding-left:0.1em;
+  margin-top:0.5em;
+  margin-bottom:1em;
+  width:4em;
+}
+
+#footer-logo3:hover{
+  width:6em;
+}
+
+.footer-content2{
+  padding-top:1.5em;
+}
+
+.footer-content3{
+  margin-top:1em;
+}
+
+@media screen and (max-width: 375px) {
+
+#footer-logo1{
+  width:100%;
+}
+  
 }

@@ -8,7 +8,7 @@ class Publication < ApplicationRecord
   has_many :projects ,through: :publish_relationships
   
   has_attached_file :file
-  validates_attachment :file, :presence => true,
+  validates_attachment :file,
   :content_type => { :content_type => 'application/pdf' },
   :size => { :in => 0..100.megabytes }
   

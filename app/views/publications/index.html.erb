@@ -1,14 +1,49 @@
 <% provide(:title, 'All Publications') %>
+
+<div class = "side-nav col-md-2">
+  <p style = "font-size:2em; "><strong>Quick Index</strong></p>
+  <% @pub_year.each do |array| %>
+    <div class = "side-nav-list">
+      <%= link_to array, publications_path(:anchor => "publication-#{array}") %>
+    </div>
+  <% end %>
+
+</div>
+
 <div class = "term_detail col-md-8 col-md-offset-2">
   <div class = "detail-page-title">Publications</div>
-  <div class = "detail_intro">LAEC seeks to understand and solve fundamental problems at multiscale levels to improve energy conversion efficiency in devices such as compact heat exchangers, fuel cells, batteries, and refrigeration systems. The following highlights some of the current research projects in our group.</div>
-    
-  <div class="projects">
-    <% @publications.each do |publication| %>
-        <div class = "project_brief">
-          <%= link_to publication.title, publication.file.url(), {:class=>"thumb-title col-xs-12 col-md-12"}%>
-          <%= truncate(publication.descryption, :length => 250) %>
+
+  <div class = "pub_list">
+  <% @pub_year.each do |array| %> 
+    <div class = "pub_year container col-md-12">
+      <div class = "anchor_blank" id="publication-<%=array%>"></div>
+        <p><strong><%= array %></strong></p>
+        <button id = "#pub_year-<%=array%>" type="button" class="btn btn-custom5" data-toggle="collapse" onclick="switchtext(id)" data-target="#pub_year-<%=array%>"><%= array == @large_element ? "Collapse ↑" : "Expand ↓" %></button>
+          <div class="publications col-md-12">
+            <div id="pub_year-<%=array%>" class="col-md-12 <%= array == @large_element ? 'collapse in' : 'collapse' %>">
+            <% @publications.each do |publication| %>
+              <% if publication.time == array %>
+                <div class = "publication_brief">
+                  <P><%= link_to publication.title, publication_path%></P>
+                  <%= truncate(publication.descryption, :length => 250) %>
+                </div>
+              <% end %>  
+            <% end %>
+           </div>
+          </div>
         </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-  </div>
+<script>
+  function switchtext(a) {
+    x = document.getElementById(a);
+    if (x.innerHTML == "Expand ↓"){
+      x.innerHTML = ("Collapse ↑");
+    }
+    else {
+     x.innerHTML = ("Expand ↓");
+    }
+  }
+
+</script>

@@ -1,15 +1,43 @@
 <div>
+  <span class="user col-md-10 topic">Update Participants</span>
   <div id = "edit_form"><%= render partial: 'participate_form'%></div>
+  <span class="user col-md-10 topic">Update Related Publications</span>
   <div id = "edit_form2"><%= render partial: 'relate_form'%></div>
+  <span class="user col-md-10 topic">Update Related Research Partners</span>
+  <div id = "edit_form3"><%= render partial: 'partner_form'%></div>
+  
+  <span class="user col-md-10 topic">Update Image Gallery</span>
+  
+  <div class = "col-md-10 col-md-offset-1">
   <%= form_for(@project.galleries.build) do |f| %>
+    
     <div><%= hidden_field_tag :project_id, @project.id %></div>
       <%= f.file_field :image %>
       <%= f.submit "upload file", class: "btn btn-primary" %>
   <% end %>  
-  <%= link_to 'Show', @project %> |
-  <%= link_to 'Back', projects_path %>
-  <% if current_user == (@project.user) %>
-    <%= link_to "delete", @project, method: :delete,
-                                      data: { confirm: "You sure?" } %>
+  </div>
+
+  <span class="user col-md-10 topic">Update Research Information</span>
+  <div class = "col-md-10 col-md-offset-1">
+  <%= form_for(@project) do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title, :value => @project.title, class: 'form-control' %>
+      <%= f.label :description %>
+      <%= f.text_area :description, :value => @project.description, class: 'form-control' %>
+      <%= f.label :highlight %>
+      <%= f.number_field :highlight, class: 'form-control' %>
+      <%= f.file_field :image %>
+      <%= f.submit "Update my project", class: "btn btn-primary" %>
   <% end %>
+  </div>
+  
+  <div class = "col-md-10 col-md-offset-1">
+    <%= link_to 'Show', @project %> |
+    <%= link_to 'Back', projects_path %>
+    <% if current_user == (@project.user) %>
+      <%= link_to "delete", @project, method: :delete,
+                                        data: { confirm: "You sure?" } %>
+    <% end %>
+  </div>
+
 </div>

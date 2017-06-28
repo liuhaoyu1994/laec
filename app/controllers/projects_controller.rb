@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @authors = @project.authors
     @users  = User.find(@authors.ids)
+    @research_partners = ResearchPartner.all
   end
 
   def new
@@ -33,11 +34,13 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @users = User.all
     @authors = @project.authors
+    @research_partners = ResearchPartner.all
   end
 
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(project_params)
+      redirect_to project_path(@project)
     else
       render 'edit'
     end
@@ -57,7 +60,7 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:title, :description, :publication, :user_id, :image )
+      params.require(:project).permit(:title, :description, :publication, :user_id, :image, :highlight, :research_partner )
     end
     
     

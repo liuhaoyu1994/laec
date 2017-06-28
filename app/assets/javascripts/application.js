@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
 var didScroll;
 var lastScrollTop = 0;
 var delta = 5;
@@ -54,3 +56,5 @@ $(document).ready(function(){
 function dropdown(){
     document.getElementById("Green").classList.toggle("show");
 }
+
+

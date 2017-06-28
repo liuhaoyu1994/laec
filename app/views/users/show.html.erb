@@ -2,7 +2,7 @@
 
 <% provide(:title, @user.name)%>
 <p>
-  <div class = "profile_image">
+  <div class = "profile_image col-md-1 card_pic">
     <%= link_to image_tag(@user.image.url()), @user.image.url %>
   </div>
   <%= link_to @user.name, @user %>
@@ -27,5 +27,7 @@
           <% end %>
         </div>
 <% end %>
+
+
 
 

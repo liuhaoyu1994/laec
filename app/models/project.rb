@@ -4,7 +4,8 @@ class Project < ApplicationRecord
   has_many :relationships, foreign_key: "article_id",
                                   dependent: :destroy
   has_many :authors, through: :relationships
-  
+  has_many :partner_relations
+  has_many :research_partners, through: :partner_relations
   has_many :publish_relationships, foreign_key: "project_id",
                                   dependent: :destroy
   has_many :publications ,through: :publish_relationships
@@ -41,6 +42,19 @@ class Project < ApplicationRecord
   end
 
   def relate?(publication)
+    publications.include?(publication)
+  end
+  
+  
+  def partner(research_partner)
+    partner_relations.create(research_partner_id: research_partner.id)
+  end
+
+  def breakup(research_partner)
+    partner_relations.find_by(research_partner_id: research_partner.id).destroy
+  end
+
+  def partner?(research_partner)
     publications.include?(publication)
   end
 end

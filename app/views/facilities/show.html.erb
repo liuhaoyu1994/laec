@@ -3,30 +3,29 @@
 <% provide(:title, @facility.title)%>
 
 <p>
+  <div class = "facility_show col-md-4">
   <%= link_to image_tag(@facility.image.url()), @facility.image.url %>
   <%= @facility.title %>
   
-  <ul class = "users-list">
         <div class = "users-icon">
           <% @users.each do |user| %>
-              <div class = "users-selection">
-                <div class = "card_pic card_pic2 col-md-4">
+                <div class = "card_pic">
                   <%= link_to image_tag(user.image.url()), user.image.url %>
                  </div>
                     <%= link_to user.name, user %>
 
                    <%= user.email %>
                    <%= user.tel %>
-              </div>
-
           <% end %>
           
         </div>
-      </ul>
-  
-  
+
+  </div>
 </p>
 
+
+  <%= link_to "delete", @facility, method: :delete,
+                                        data: { confirm: "You sure?" } %>
 
 <%= link_to 'Edit', edit_facility_path(@facility) %> |
 <%= link_to 'Back', facilities_path %>

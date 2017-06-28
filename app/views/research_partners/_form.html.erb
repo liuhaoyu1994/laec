@@ -1,0 +1,15 @@
+<%= simple_form_for(@research_partner) do |f| %>
+  <%= f.error_notification %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+    
+    <%= f.file_field :image %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
