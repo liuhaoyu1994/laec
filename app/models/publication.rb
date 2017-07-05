@@ -7,11 +7,13 @@ class Publication < ApplicationRecord
                                   dependent: :destroy
   has_many :projects ,through: :publish_relationships
   
-  has_attached_file :file
+  has_attached_file :file,
+    default_url: lambda { |image| ActionController::Base.helpers.asset_path('missing.png') }
+
   validates_attachment :file,
   :content_type => { :content_type => 'application/pdf' },
   :size => { :in => 0..100.megabytes }
-  
+
   def add(user)
     publish_user_relationships.create(user_id: user.id)
   end

@@ -1,5 +1,6 @@
 class ResearchPartnersController < ApplicationController
   before_action :set_research_partner, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /research_partners
   # GET /research_partners.json

@@ -1,4 +1,6 @@
 class PartnerRelationsController < ApplicationController
+    before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+
   def create
   
     @research_partner = ResearchPartner.find(params[:research_partner_id])

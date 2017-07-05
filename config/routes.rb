@@ -123,6 +123,7 @@ Rails.application.routes.draw do
       get :authors
     end
   end
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,4 +1,6 @@
 class GalleriesController < ApplicationController
+    before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+
   def show
   end
 

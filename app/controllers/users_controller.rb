@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+
   def new
     @user = User.new
   end
@@ -56,6 +58,5 @@ class UsersController < ApplicationController
                                    :password_confirmation, :title, :department, :image, :tel, :bio)
     end
     
-  
-    
+   
 end

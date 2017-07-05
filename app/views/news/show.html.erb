@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class = "col-md-8 col-md-offset-2 project-detail">
+  
+  <span class="title col-md-12"><%= @news.title%></span>
 
-<p>
-  <strong>Title:</strong>
-  <%= @news.title %>
-</p>
+  <span class="user col-md-12">
+     Time: <%= @news.month %>, <%= @news.year %>.</span>
 
-<p>
-  <strong>Description:</strong>
-  <%= @news.description %>
-</p>
+  <div class = "project-image">
+    <%= link_to image_tag(@news.image.url()), @news.image.url %>
+  </div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @news.image %>
-</p>
+  <span class="col-md-8 col-md-offset-2" style = "margin-top:1em;"><%= @news.description%></span>
 
-<%= link_to 'Edit', edit_news_path(@news) %> |
-<%= link_to 'Back', news_index_path %>
+  
+
+</div>
+
+<% if logged_in? %>
+  <%= link_to 'Edit', edit_news_path(@news) %> |
+  <%= link_to 'Back', news_index_path %>
+<% end %>

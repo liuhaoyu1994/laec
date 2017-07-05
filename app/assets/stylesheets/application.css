@@ -26,16 +26,17 @@
 } 
 
 .main-bodytext {
-  background-color:whitesmoke;
 }
 
 body{
     position: relative;
+    background-color:whitesmoke;
+
   
 }
 
 .main-bodytext{
-  font-family: "WhitneyMedium";
+  font-family: Tahoma, Geneva, sans-serif	;
 }
 
 #blank{

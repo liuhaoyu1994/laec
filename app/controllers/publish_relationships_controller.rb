@@ -1,4 +1,6 @@
 class PublishRelationshipsController < ApplicationController
+    before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+
   def create
     @project = Project.find(params[:project_id])
     @publications = Publication.all

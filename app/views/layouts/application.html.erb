@@ -29,7 +29,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li  data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/home') || current_page?(root_path) %>"><%= link_to "Home", root_path%></li>
                 <li class="dropdown">
-                  <a class="dropdown-toggle <%= 'active' if (current_page?('/research')||current_page?('/publication')) %>" data-toggle="dropdown" href="#">Research&#9663;
+                  <a class="dropdown-toggle <%= 'active' if (current_page?('/research')||current_page?('/publication')||current_page?('/research_partners')) %>" data-toggle="dropdown" href="#">Research&#9663;
                   </a>
                   <ul class="dropdown-menu dropdown-menu-left">
                     <li><%= link_to "Research", "/research"%></li>
@@ -43,7 +43,7 @@
                 <li data-toggle="collapse" data-target=".navbar-collapse.in" class="<%= 'active' if current_page?('/teaching') %>"><%= link_to "Teaching", '/teaching'%></li>
                 
                 <li class="dropdown">
-                  <a class="dropdown-toggle <%= 'active' if (current_page?('/about')||current_page?('/news')) %>" data-toggle="dropdown" href="#">About&#9663;
+                  <a class="dropdown-toggle <%= 'active' if (current_page?('/about')||current_page?('/news')||current_page?('/location')) %>" data-toggle="dropdown" href="#">About&#9663;
                   </a>
                   <ul class="dropdown-menu dropdown-menu-left">
                     <li><%= link_to "Team", "/about"%></li>

@@ -1,5 +1,6 @@
 class RelationshipsController < ApplicationController
-  
+    before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+
   def create
     @author = User.find(params[:author_id])
     @article = Project.find(params[:article_id])
