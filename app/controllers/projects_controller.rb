@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @authors = @project.authors
     @users  = User.find(@authors.ids)
-    @research_partners = ResearchPartner.all
+    @research_partners = @project.research_partners.all
   end
 
   def new

@@ -7,7 +7,9 @@
 
 }
 
-
+.cut-padding{
+  padding:0;
+}
 
 #logo6{
   display:none;
@@ -246,7 +248,7 @@ position:relative;
 
 .card_name{
   text-align:left;
-  font-size:1.6em;
+  font-size:1.2em;
   font-weight:bold;
   line-height: 1.1;
 }
@@ -408,6 +410,9 @@ position:relative;
   position:relative;
   top:0;
   display:inline-block;
+  padding-left:0;
+  padding-right:0;
+  
 }
 
 .card_text{
@@ -423,26 +428,27 @@ position:relative;
 
 }
 
-.card_pic3 img{
-  width:100%;
 
-}
 
 
 .card_pic2 {
     overflow:hidden;
     height:10em;
     margin-bottom:1em;
-
 }
 
 .card_pic3 {
+  
   height:auto;
 }
 
 .card_pic2 img {
   width:auto;
   height:100%;
+}
+
+.card_pic3 img{
+  margin:auto;
 }
 
 .page2{
@@ -552,7 +558,6 @@ position:relative;
 }
 
 .slideshow{
-
   position:relative;
   overflow:hidden;
   margin:auto;
@@ -560,6 +565,8 @@ position:relative;
   width: 100%;
   height:20em;
 }
+
+
 
 .news_brief{
   width:100%;
@@ -638,6 +645,7 @@ position:relative;
 
 .all_staff{
   background:whitesmoke;
+  padding:0;
 }
 
 .tweet{
@@ -834,8 +842,8 @@ font-size:1.5em;
 @media screen and (min-width: 992px) {
 
 .card_pic2 img {
-  width:100%;
-  height:auto;
+  width:auto;
+  height:100%;
   
 }
 
@@ -868,7 +876,7 @@ font-size:1.5em;
 
 .contact-info3{
   position:relative;
-  background-color:rgba(255,255,255, 0.8);
+  background-color:rgba(255,255,255, 0.85);
 }
   
 .title-image{
@@ -884,11 +892,15 @@ font-size:1.5em;
   text-align:left;
   font-size:1.5em;
   position:absolute;  
-  top:15%;
+  top:20%;
 }
 
 .title-text strong{
  font-size:1.5em;
 }
   
+}
+
+.card_pic5 img{
+ width:100%; 
 }

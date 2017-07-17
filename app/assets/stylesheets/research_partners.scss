@@ -3,12 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .research_partner_logo img{
-  height:100%;
-  width:auto;
+  width:100%;
+  height:auto;
   
 }
 
 .research_partner_list{
+  position:relative;
   margin:auto;
   text-align:center;
 }
@@ -18,3 +19,23 @@
   height:5em;
 }
 
+.info-partner{
+  margin-bottom:3em;
+}
+
+.partner-list{
+  
+}
+
+.research_partner_list{
+  margin:auto;
+  height:15em;
+  
+}
+
+.block-p{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  margin:auto;
+}

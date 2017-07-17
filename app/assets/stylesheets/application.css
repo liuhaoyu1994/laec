@@ -25,9 +25,6 @@
   src: url(whitney-black.ttf) format("truetype");
 } 
 
-.main-bodytext {
-}
-
 body{
     position: relative;
     background-color:whitesmoke;
@@ -36,7 +33,7 @@ body{
 }
 
 .main-bodytext{
-  font-family: Tahoma, Geneva, sans-serif	;
+font-family: 'Open Sans', sans-serif;
 }
 
 #blank{

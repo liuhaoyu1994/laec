@@ -10,7 +10,7 @@
 
 </div>
 
-<div class = "term_detail col-md-8 col-md-offset-2">
+<div class = "term_detail col-md-10 col-md-offset-2">
   <div class = "detail-page-title">Publications</div>
 
   <div class = "pub_list">
@@ -24,11 +24,7 @@
             <% @publications.each do |publication| %>
               <% if publication.time == array %>
                 <div class = "publication_brief">
-                  <% if publication.file.url %>
                     <p><%= link_to publication.title, publication.file.url%></p>
-                  <% else %>
-                    <p><%= publication.title %></p>
-                  <% end %>
                   <%= truncate(publication.descryption, :length => 250) %>
                 </div>
               <% end %>  

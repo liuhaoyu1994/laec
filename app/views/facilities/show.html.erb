@@ -3,9 +3,16 @@
 <% provide(:title, @facility.title)%>
 
 <p>
-  <div class = "facility_show col-md-4">
-  <%= link_to image_tag(@facility.image.url()), @facility.image.url %>
-  <%= @facility.title %>
+  <div class = "facility_show col-md-10 col-md-1">
+  <div class = "col-md-6">
+    <%= link_to image_tag(@facility.image.url()), @facility.image.url %>
+  </div>
+  <div class = "col-md-6 title">
+    <%= @facility.title %>
+  </div>
+  <div class = "col-md-6 card_text">
+    <%= @facility.description %>
+  </div>
   
         <div class = "users-icon">
           <% @users.each do |user| %>
@@ -23,9 +30,11 @@
   </div>
 </p>
 
+<% if logged_in? %>
 
   <%= link_to "delete", @facility, method: :delete,
                                         data: { confirm: "You sure?" } %>
 
 <%= link_to 'Edit', edit_facility_path(@facility) %> |
 <%= link_to 'Back', facilities_path %>
+<% end %>

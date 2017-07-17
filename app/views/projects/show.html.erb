@@ -1,8 +1,8 @@
 <div class = "col-md-8 col-md-offset-2 project-detail" id="project-<%= @project.id %>">
   
-  <span class="title col-md-12"><%= @project.title%></span>
+  <span class="title col-md-12 col-xs-12"><%= @project.title%></span>
 
-  <span class="user col-md-12">
+  <span class="user col-md-12 col-xs-12">
       <%= link_to @project.user.name, @project.user %>
      Posted <%= time_ago_in_words(@project.created_at) %> ago.</span>
   
@@ -10,53 +10,50 @@
     <%= link_to image_tag(@project.image.url()), @project.image.url %>
   </div>
   <div class="project-description col-md-12"><span class = "col-md-10 col-md-offset-1"><%= simple_format(@project.description) %></span></div>
-  <span class="user col-md-10 topic">Related Publication:</span>
+  <span class="user col-md-10 col-xs-12 topic">Related Publication:</span>
   <ul>
     <% @project.publications.each do |publication| %>
-      <li class = "col-md-12"><%= link_to publication.title, publication %></li>
+      <li class = "col-md-12 col-xs-12"><%= link_to publication.title, publication %></li>
     <% end %>
   </ul>
   
-  <span class="user col-md-10 topic">Image Galleries:</span>
+  <span class="user col-md-10 col-xs-12 topic">Image Galleries:</span>
   <% @project.galleries.each do |pic| %>
-    <div class = "galleries"><%= link_to image_tag(pic.image.url()), pic.image.url %></div>
+    <div class = "galleries col-xs-12"><%= link_to image_tag(pic.image.url()), pic.image.url %></div>
   <% end %>
-  <span class="user col-md-10 topic">Participants:</span>
-      <ul class = "">
-        <div class = "users-icon">
+  <span class="user col-md-10 topic col-xs-12">Participants:</span>
+        <div class = "users-icon container">
           <% @users.each do |user| %>
-              <div class = "users-selection">
-                <div class = "card_pic2 card_pic3">
-                  <%= link_to image_tag(user.image.url()), user.image.url %>
-                 </div>                
+              <div class = "users-selection col-md-2 col-xs-6">
+                <div class = " container card_pic6 col-md-6 col-xs-5">
+                  <%= link_to image_tag(user.image.url()), user %>
+                 </div> 
+                 <div class = " container card_pic6 col-md-6 col-xs-5">
                    <%= link_to user.name, user %>
                    <%= link_to user.last_name, user %>
+                 </div> 
 
               </div>
           <% end %>
       
     </div>
-  </ul>
-  <span class="user col-md-10 topic">Research Patners:</span>
-      <div class = "container col-md-4">
-        <div class = "container col-md-12">
-          <%= image_tag(@research_partners.first.image.url()) %>
-        </div>
-        <div class = "container col-md-12">
-          <%= @research_partners.first.title %>
-        </div>
-      </div>
+  <span class="user col-md-10 col-xs-12 topic">Research Patners:</span>
+    <div class = "users-icon">
+       <% @research_partners.each do |partner| %>
+              <div class = "users-selection">
+                <div class = " container card_pic6 col-md-12 col-xs-12">
+                  <%= link_to image_tag(partner.image.url()), partner.image.url %>
+                 </div> 
+                  <div class = " container card_pic6 col-md-12 col-xs-12">
+                   <%= link_to partner.title, partner %>
+                 </div>
 
-      <div class = "container col-md-4">
-         <div class = "container col-md-12">
-          <%= image_tag(@research_partners.second.image.url()) %>
-        </div>
-        <div class = "container col-md-12">
-          <%= @research_partners.second.title %>
-        </div>
-      </div>
- 
+              </div>
+          <% end %>
+    </div>
   <div class = "col-md-12"></div>
-<%= link_to 'Edit', edit_project_path(@project), :class => "col-md-12 btn btn-info" %>
 
+<% if logged_in? %>
+<%= link_to 'Edit', edit_project_path(@project), :class => "col-md-12 btn btn-info" %>
+<% end %>
 </div>

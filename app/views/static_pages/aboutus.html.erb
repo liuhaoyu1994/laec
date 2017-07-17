@@ -1,9 +1,8 @@
 <% provide(:title,"about us") %>
-
-
-
 <% if !logged_in? %> 
-<div class = "side-nav col-md-2">
+<div class = "container-fluid">
+
+<div class = "container side-nav col-md-2">
   <div class = "side-nav-list">
         <p><%= link_to "Principle Investigator", :anchor => "Principle" %></p>
         <p><%= link_to "Senior Staff", :anchor => "Senior" %></p>
@@ -17,42 +16,39 @@
 </div>
 
 
-
-  <div class = "all_staff col-md-8 col-md-offset-2">
+  <div class = "all_staff container col-md-9 col-sm-9 col-xs-12 col-md-offset-2 col-sm-offset-2">
+   <div class = "container">
+   <div class = "cut-padding col-md-5 col-sm-12 col-xs-12">
+     <div class= "slideshow">
+      <% @news_team.each do |news| %>
+       <div class = "mySlides2" id = "slide-<%= news.title.gsub(/\s+/, "") %>" onclick ="carousel(this.id)" style = "cursor:pointer">
+        <%= news.title %>
+       </div>
+      <% end %>
+     </div>
+   </div>
    
-
-  <div class = "team-news col-md-6">
-    <div class= "slideshow container col-md-6" style="max-width:500px">
-     <% @news_team.each do |news| %>
-      <div class = "mySlides2" id = "slide-<%= news.title.gsub(/\s+/, "") %>" onclick ="carousel(this.id)" style = "cursor:pointer">
-       <%= news.title %>
-      </div>
-     <% end %>
-    </div>
-  </div>
-  
-    <div class = "team-news col-md-6">
-    <div class= "slideshow container col-md-6" style="max-width:500px">
-
-     <% @news_team.each do |news| %>
-      <div class = "mySlides" id = "slide-<%= news.title.gsub(/\s+/, "") %>-image">
-       <%= link_to image_tag(news.image.url()), news%>
-      </div>
-     <% end %>
-    </div>
-  </div>
-  
- <div class = "col-md-12">
+     <div class = "team-news container col-md-6 col-sm-12 col-xs-12">
+     <div class= "slideshow col-md-6 col-sm-6 col-xs-12">
+      <% @news_team.each do |news| %>
+       <div class = "mySlides" id = "slide-<%= news.title.gsub(/\s+/, "") %>-image">
+        <%= link_to image_tag(news.image.url()), news%>
+       </div>
+      <% end %>
+     </div>
+   </div>
+ </div>
+ <div class = "col-md-12 container">
  <div class = "anchor_blank" id = "Principle"></div>
 
   <p><strong> Principle Investigator </strong></p>
   <% @users_principle.each do |user| %>
-     <div class = "each_item container col-md-5">
-     <div class = "card_pic3 col-md-5  col-sm-6 col-xs-6">
+     <div class = "each_item container col-md-5 col-sm-5 col-xs-12">
+     <div class = "card_pic5 col-md-5 col-sm-6 col-xs-6">
       <br>
         <%= link_to image_tag(user.image.url()), user.image.url %>
        </div>
-      <div class = "card_text col-md-7 col-sm-6 col-xs-6">
+      <div class = "card_text  col-md-7 col-sm-6 col-xs-6">
        <div class = "card_name">
               <br>
 
@@ -70,7 +66,7 @@
        </div>
       </div>
     </div>
-      <div class = "card_text col-md-7">
+      <div class = "card_text container col-md-7 col-sm-7 col-xs-12">
        <div class  = "card_title card_bio">
           <span><%= user.bio %></span>
        </div>
@@ -79,11 +75,11 @@
       </div>
      
   <div class = "staff-collection container col-md-12">
-  <div class = "anchor_blank" id = "Senior"></div>
+  <div class = "anchor_blank container" id = "Senior"></div>
   <p><strong> Senior Staff </strong></p>
   <% @users_senior.each do |user| %>
      <div class = "each_item container col-md-4 col-sm-6 col-xs-6">
-     <div class = "card_pic2 col-md-5 col-sm-4 col-xs-12">
+     <div class = "card_pic2 col-lg-4 col-md-5 col-sm-4 col-xs-12">
         <%= link_to image_tag(user.image.url()), user.image.url %>
        </div>
       <div class = "card_text col-md-7 col-sm-8 col-xs-12">
@@ -250,10 +246,10 @@
 
 <% end %>
 
-
 </div>
 
-
+</div>
+</div>
 <script>
 
 $( document ).ready(function() {
@@ -296,3 +292,4 @@ function carousel(a) {
 }
 
 </script>
+

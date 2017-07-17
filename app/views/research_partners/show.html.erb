@@ -14,6 +14,7 @@
   <strong>Image:</strong>
   <%= @research_partner.image %>
 </p>
-
+<% if logged_in? %>
 <%= link_to 'Edit', edit_research_partner_path(@research_partner) %> |
 <%= link_to 'Back', research_partners_path %>
+<% end %>

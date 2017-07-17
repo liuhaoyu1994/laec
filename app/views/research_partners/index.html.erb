@@ -1,22 +1,22 @@
   <tbody>
-    <div class = "information col-md-10 col-md-offset-1">
-            <p><strong>Research Partners</strong></p>
+    <div class = "info-partner col-md-10 col-md-offset-1">
+            <p class = "detail-page-title"><strong>Research Partners</strong></p>
 
-      <div class = "container">
+      <div class = "partner-list container">
         <% @research_partners.each do |research_partner| %>
-          <div class = "col-md-3 research_partner_list">
-            <tr>
-              <div class = "col-md-12 research_partner_logo">
+          <div class = "col-md-3 col-sm-3 col-xs-12  research_partner_list">
+            <div class = "block-p">
+              <div class = "col-md-12 col-sm-12 col-xs-12 card_pic3 card_pic4">
                 <td><%= link_to image_tag(research_partner.image.url()), research_partner.description%></td>
               </div>
-              <div class = "col-md-12">
+              <div class = "col-md-12 col-sm-12 col-xs-12">
                 <td><%= research_partner.title %></td>
               </div>
               <% if logged_in? %>
                 <td><%= link_to 'Edit', edit_research_partner_path(research_partner) %></td>
                 <td><%= link_to 'Destroy', research_partner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>  
-            </tr>
+            </div>
           </div>
         <% end %>
       </div>
