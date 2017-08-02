@@ -1,0 +1,22 @@
+# Test environment
+top_srcdir='/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4'
+top_builddir='/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4'
+
+set -a
+COMPARE="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/utilities/magick compare"
+COMPOSITE="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/utilities/magick composite"
+CONJURE="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/utilities/magick conjure"
+CONVERT="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/utilities/magick convert"
+DISPLAY="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/utilities/magick display"
+IDENTIFY="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/utilities/magick identify"
+MAGICK="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/utilities/magick"
+MONTAGE="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/utilities/magick montage"
+VALIDATE="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/tests/validate"
+DRAWTEST="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/tests/drawtest"
+WANDTEST="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/tests/wandtest"
+LD_LIBRARY_PATH="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/magick/.libs:${LD_LIBRARY_PATH}"
+MAGICK_CODER_MODULE_PATH="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/coders"
+MAGICK_CONFIGURE_PATH="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/config:/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/config"
+MAGICK_FILTER_MODULE_PATH="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/filters"
+PATH="/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/utilities:/home/laec-lab/web/laec/src/ImageMagick-7.0.6-4/tests:${PATH}"
+set +a
