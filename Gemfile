@@ -35,8 +35,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
-  gem 'unicorn'
+  gem 'sqlite3', '1.3.12'
   gem 'rmagick'
 
 end

@@ -17,8 +17,7 @@
 
 <div class = "information col-md-10 col-md-offset-1">
   
-    <!--- --->
-
+  <% if @cate_array %>
     <% @cate_array.each do |array| %>
       <div class = "block">
           <p><strong><%= array %></strong></p>
@@ -39,7 +38,7 @@
             </div>
             </div>
       <% end %>
-          <!--- --->
+    <% end %>
 
 
   <br>
