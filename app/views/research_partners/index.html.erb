@@ -1,7 +1,9 @@
   <tbody>
     <div class = "info-partner col-md-10 col-md-offset-1">
             <p class = "detail-page-title"><strong>Research Partners</strong></p>
-
+    <% if current_user %>
+      <%= link_to 'New Research Partner', new_research_partner_path, :class => "btn btn-success"%>
+    <% end %>
       <div class = "partner-list container">
         <% @research_partners.each do |research_partner| %>
           <div class = "col-md-3 col-sm-3 col-xs-12  research_partner_list">

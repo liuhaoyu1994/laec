@@ -1,0 +1,15 @@
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.label :name %>
+    <%= f.text_field :title, :value => current_user.name %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.hidden_field :facility_id, :value => @facility.id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "book", :class => "btn btn-success" %>
+  </div>
+<% end %>

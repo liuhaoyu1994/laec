@@ -1,7 +1,50 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.shrink_image{
+  display:inline-block;
+  width:49%;
+}
 
+.user_articles h4{
+  width:100%;
+}
+
+.user_articles{
+  width:100%;
+  display:block;
+  height:100%;
+}
+
+.bio_image{
+  margin-right:1em;
+}
+
+.user_articles img{
+  margin:1em;
+  width:100%;
+}
+
+.card_text .bio-bio {
+  font-size:1.1em;
+  line-height:1.5;
+}
+
+.non-float{
+  float:none;
+}
+
+.simple_form .optional{
+  color:black;
+}
+
+.margin-bottom{
+  margin-bottom:5em;
+}
+
+.form-inputs .text{
+  color:black;
+}
 
 @media screen and (min-width: 770px) {
   

@@ -17,29 +17,9 @@
 
 
   <div class = "all_staff container col-md-9 col-sm-9 col-xs-12 col-md-offset-2 col-sm-offset-2">
-   <div class = "container">
-   <div class = "cut-padding col-md-5 col-sm-12 col-xs-12">
-     <div class= "slideshow">
-      <% @news_team.each do |news| %>
-       <div class = "mySlides2" id = "slide-<%= news.title.gsub(/\s+/, "") %>" onclick ="carousel(this.id)" style = "cursor:pointer">
-        <%= news.title %>
-       </div>
-      <% end %>
-     </div>
-   </div>
-   
-     <div class = "team-news container col-md-6 col-sm-12 col-xs-12">
-     <div class= "slideshow col-md-6 col-sm-6 col-xs-12">
-      <% @news_team.each do |news| %>
-       <div class = "mySlides" id = "slide-<%= news.title.gsub(/\s+/, "") %>-image">
-        <%= link_to image_tag(news.image.url()), news%>
-       </div>
-      <% end %>
-     </div>
-   </div>
- </div>
+
  <div class = "col-md-12 container">
- <div class = "anchor_blank" id = "Principle"></div>
+ <div class = "anchor_blank col-md-12" id = "Principle"></div>
 
   <p><strong> Principle Investigator </strong></p>
   <% @users_principle.each do |user| %>
@@ -48,7 +28,7 @@
       <br>
         <%= link_to image_tag(user.image.url()), user.image.url %>
        </div>
-      <div class = "card_text  col-md-7 col-sm-6 col-xs-6">
+      <div class = "card_text col-md-7 col-sm-6 col-xs-6">
        <div class = "card_name">
               <br>
 
@@ -75,12 +55,12 @@
       </div>
      
   <div class = "staff-collection container col-md-12">
-  <div class = "anchor_blank container" id = "Senior"></div>
+  <div class = "anchor_blank" id = "Senior"></div>
   <p><strong> Senior Staff </strong></p>
   <% @users_senior.each do |user| %>
      <div class = "each_item container col-md-4 col-sm-6 col-xs-6">
-     <div class = "card_pic2 col-lg-4 col-md-5 col-sm-4 col-xs-12">
-        <%= link_to image_tag(user.image.url()), user.image.url %>
+     <div class = "card_pic2 col-md-5 col-sm-4 col-xs-12">
+        <%= image_tag(user.image.url()) %>
        </div>
       <div class = "card_text col-md-7 col-sm-8 col-xs-12">
        <div class = "card_name">
@@ -96,16 +76,54 @@
        <div class = "card_title">
          <span><%= user.tel %></span>
        </div>
-      <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>
+      <!-- <button type="button" class="btn btn-custom btn-align" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button> -->
+                
+          <button id="myModal-<%= user.id %>" class="myBtn btn btn-custom btn-align">View More</button>                  
+           <!-- The Modal -->
+           <div id="myModal-<%= user.id %>-content" class="modal">
+           
+             <!-- Modal content -->
+             <div class="modal-content">
+               <span class="close">&times;</span>
+               <div class = "non-float user_articles container">
+                  <div class = "col-md-2 bio_image">
+                    <%= link_to image_tag(user.image.url()), user.image.url %>
+                  </div>
+                  <h3 class = "bio-name"><strong><%= user.name %>
+                  <%= user.last_name %></strong></h3>
+                  <span class = "bio-bio container col-md-9"><%= user.bio %></span>
+                </div>
+                <div>
+                  <div class = "user_articles container col-md-10">
+                    <h4><strong>Related Research</strong></h4>
+                    <% user.articles.each do |project| %>
+                      <div class = "user_articles_list">
+                        <div class = "user_articles_thumb">
+                          <%= link_to image_tag(project.image.url()), project%>
+                        </div>
+                          <%= link_to project.title, project, {:class=>"thumb-title col-xs-12 col-md-12"} %>
+                          <span><%= truncate(project.description, :length => 200) %></span>
+                          <%= link_to "View more", project%>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class = "user_articles container">
+                   <h4><strong>Related Articles</strong></h4>
+                   <% user.publications.each do |publication| %>
+                     <h4><strong><%= link_to publication.title, publication %></strong></h4>
+                     <span class="project-description"><%= publication.descryption%></span>
+                   <% end %>
+                 </div>
+                </div>
+               <!-- detail -->
+                 
+             </div>
+           
+           </div>
+           
       </div>
     </div>
-    <div id="user-<%= user.id %>" class="collapse">
-      <div class = "card_text col-md-12 col-sm-12 col-xs-12">
-       <div class  = "card_title card_bio">
-          <span><%= user.bio %></span>
-       </div>
-     </div>
-    </div>
+    
     <% end %>
       </div>
   
@@ -131,16 +149,54 @@
        <div class = "card_title">
          <span><%= user.tel %></span>
        </div>
-      <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>
+      <!-- <button type="button" class="btn btn-custom btn-align" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>  -->
+           <button id="myModal-<%= user.id %>" class="myBtn btn btn-custom btn-align">View More</button>                  
+
       </div>
+      
     </div>
-    <div id="user-<%= user.id %>" class="collapse">
-      <div class = "card_text col-md-12 col-sm-12 col-xs-12">
-       <div class  = "card_title card_bio">
-          <span><%= user.bio %></span>
-       </div>
-     </div>
-    </div>
+           <!-- The Modal -->
+           <div id="myModal-<%= user.id %>-content" class="modal">
+           
+             <!-- Modal content -->
+             <div class="modal-content">
+               <span class="close">&times;</span>
+               <div class = "non-float user_articles container">
+                  <div class = "col-md-2 bio_image">
+                    <%= link_to image_tag(user.image.url()), user.image.url %>
+                  </div>
+                  <h3 class = "bio-name"><strong><%= user.name %>
+                  <%= user.last_name %></strong></h3>
+                  <span class = "bio-bio container col-md-9"><%= user.bio %></span>
+                </div>
+                <div>
+                  <div class = "user_articles container col-md-10">
+                    <h4><strong>Related Research</strong></h4>
+                    <% user.articles.each do |project| %>
+                      <div class = "user_articles_list">
+                        <div class = "user_articles_thumb">
+                          <%= link_to image_tag(project.image.url()), project%>
+                        </div>
+                          <%= link_to project.title, project, {:class=>"thumb-title col-xs-12 col-md-12"} %>
+                          <span><%= truncate(project.description, :length => 200) %></span>
+                          <%= link_to "View more", project%>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class = "user_articles container">
+                   <h4><strong>Related Articles</strong></h4>
+                   <% user.publications.each do |publication| %>
+                     <h4><strong><%= link_to publication.title, publication %></strong></h4>
+                     <span class="project-description"><%= publication.descryption%></span>
+                   <% end %>
+                 </div>
+                </div>
+               <!-- detail -->
+                 
+             </div>
+           
+           </div>
+
     <% end %>
       </div>
       
@@ -166,23 +222,62 @@
        <div class = "card_title">
          <span><%= user.tel %></span>
        </div>
-      <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>
+      <!-- <button type="button" class="btn btn-custom btn-align" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>  -->
+           <button id="myModal-<%= user.id %>" class="myBtn btn btn-custom btn-align">View More</button>                  
+
       </div>
+      
     </div>
-    <div id="user-<%= user.id %>" class="collapse">
-      <div class = "card_text col-md-12 col-sm-12 col-xs-12">
-       <div class  = "card_title card_bio">
-          <span><%= user.bio %></span>
-       </div>
-     </div>
-    </div>
+           <!-- The Modal -->
+           <div id="myModal-<%= user.id %>-content" class="modal">
+           
+             <!-- Modal content -->
+             <div class="modal-content">
+               <span class="close">&times;</span>
+               <div class = "non-float user_articles container">
+                  <div class = "col-md-2 bio_image">
+                    <%= link_to image_tag(user.image.url()), user.image.url %>
+                  </div>
+                  <h3 class = "bio-name"><strong><%= user.name %>
+                  <%= user.last_name %></strong></h3>
+                  <span class = "bio-bio container col-md-9"><%= user.bio %></span>
+                </div>
+                <div>
+                  <div class = "user_articles container col-md-10">
+                    <h4><strong>Related Research</strong></h4>
+                    <% user.articles.each do |project| %>
+                      <div class = "user_articles_list">
+                        <div class = "user_articles_thumb">
+                          <%= link_to image_tag(project.image.url()), project%>
+                        </div>
+                          <%= link_to project.title, project, {:class=>"thumb-title col-xs-12 col-md-12"} %>
+                          <span><%= truncate(project.description, :length => 200) %></span>
+                          <%= link_to "View more", project%>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class = "user_articles container">
+                   <h4><strong>Related Articles</strong></h4>
+                   <% user.publications.each do |publication| %>
+                     <h4><strong><%= link_to publication.title, publication %></strong></h4>
+                     <span class="project-description"><%= publication.descryption%></span>
+                   <% end %>
+                 </div>
+                </div>
+               <!-- detail -->
+                 
+             </div>
+           
+           </div>
+
     <% end %>
       </div>
       
   <div class = "staff-collection container col-md-12">
   <div class = "anchor_blank" id = "Past"></div>
   <p><strong> Past Members </strong></p>
-  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">View More</button>
+  <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#demo">View More</button>
+  <br>
   <div id="demo" class="collapse">
   <% @users_members.each do |user| %>
      <div class = "each_item container col-md-4 col-sm-6 col-xs-6">
@@ -203,20 +298,82 @@
        <div class = "card_title">
          <span><%= user.tel %></span>
        </div>
-      <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>
+      <!-- <button type="button" class="btn btn-custom btn-align" data-toggle="collapse" data-target="#user-<%= user.id %>">View More <span>&rarr;</span></button>  -->
+           <button id="myModal-<%= user.id %>" class="myBtn btn btn-custom btn-align">View More</button>                  
+
       </div>
+      
     </div>
-    <div id="user-<%= user.id %>" class="collapse">
-      <div class = "card_text col-md-12 col-sm-12 col-xs-12">
-       <div class  = "card_title card_bio">
-          <span><%= user.bio %></span>
-       </div>
-     </div>
-    </div>
+           <!-- The Modal -->
+           <div id="myModal-<%= user.id %>-content" class="modal">
+           
+             <!-- Modal content -->
+             <div class="modal-content">
+               <span class="close">&times;</span>
+               <div class = "non-float user_articles container">
+                  <div class = "col-md-2 bio_image">
+                    <%= link_to image_tag(user.image.url()), user.image.url %>
+                  </div>
+                  <h3 class = "bio-name"><strong><%= user.name %>
+                  <%= user.last_name %></strong></h3>
+                  <span class = "bio-bio container col-md-9"><%= user.bio %></span>
+                </div>
+                <div>
+                  <div class = "user_articles container col-md-10">
+                    <h4><strong>Related Research</strong></h4>
+                    <% user.articles.each do |project| %>
+                      <div class = "user_articles_list">
+                        <div class = "user_articles_thumb">
+                          <%= link_to image_tag(project.image.url()), project%>
+                        </div>
+                          <%= link_to project.title, project, {:class=>"thumb-title col-xs-12 col-md-12"} %>
+                          <span><%= truncate(project.description, :length => 200) %></span>
+                          <%= link_to "View more", project%>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class = "user_articles container">
+                   <h4><strong>Related Articles</strong></h4>
+                   <% user.publications.each do |publication| %>
+                     <h4><strong><%= link_to publication.title, publication %></strong></h4>
+                     <span class="project-description"><%= publication.descryption%></span>
+                   <% end %>
+                 </div>
+                </div>
+               <!-- detail -->
+                 
+             </div>
+           
+           </div>
+
     <% end %>
       </div>
 
 
+  <div class = "staff-collection container col-md-12">
+     <p><strong> Group Photo </strong></p>
+  </div>
+
+   <div class = "cut-padding col-md-5 col-sm-12 col-xs-12">
+     <div class= "slideshow">
+      <% @news_team.each do |news| %>
+       <div class = "mySlides2" id = "slide-<%= news.title.gsub(/\s+/, "") %>" onclick ="carousel(this.id)" style = "cursor:pointer">
+        <%= news.title %>
+       </div>
+      <% end %>
+     </div>
+   </div>
+   
+     <div class = "team-news container col-md-6 col-sm-12 col-xs-12">
+     <div class= "slideshow col-md-6 col-sm-6 col-xs-12">
+      <% @news_team.each do |news| %>
+       <div class = "mySlides" id = "slide-<%= news.title.gsub(/\s+/, "") %>-image">
+        <%= link_to image_tag(news.image.url()), news%>
+        
+       </div>
+      <% end %>
+     </div>
+   </div>
   
     
 
@@ -225,6 +382,7 @@
   <%= link_to 'New Publication', new_publication_path, :class => "btn btn-success" %>
   <%= link_to 'New Research Partner', new_research_partner_path, :class => "btn btn-success"%>
   <%= link_to 'New Facilities', new_facility_path, :class => "btn btn-success" %>
+  <%= link_to 'New News', new_news_path, :class => "btn btn-success" %>
   <%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-danger" %>
 
   <ul class="users">
@@ -248,8 +406,12 @@
 
 </div>
 
+  </div>
+
 </div>
-</div>
+<br>
+
+
 <script>
 
 $( document ).ready(function() {
@@ -291,5 +453,43 @@ function carousel(a) {
      }
 }
 
+// Get the modal
+// Get the button that opens the modal
+
+$(document).ready(function() {
+        var x;
+        var y;
+        $('.myBtn').click(function() {
+            x = this.id + "-content"
+            z = $('#' + x)
+            y = z;
+            y.css("display", "block");
+        });
+        
+        $('.close').click(function() {
+            y.css("display", "none");
+        });
+        
+        $(window).click(function(event) {
+            console.log(event.target.id);
+            if (event.target.id == x){
+             y.css("display", "none");
+            }
+        });
+        
+
+    });
+
+// Get the <span> element that closes the modal
+
+// When the user clicks the button, open the modal 
+
+// When the user clicks on <span> (x), close the modal
+
+
+// When the user clicks anywhere outside of the modal, close it
+
 </script>
+
+
 

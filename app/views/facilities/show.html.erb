@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <% provide(:title, @facility.title)%>
-
-<p>
-  <div class = "facility_show col-md-10 col-md-1">
+<section id = "<%= @facility.id %>"></section>
+<div>
+  <div class = "facility_show col-md-10 col-md-offset-1">
   <div class = "col-md-6">
     <%= link_to image_tag(@facility.image.url()), @facility.image.url %>
   </div>
@@ -28,13 +28,57 @@
         </div>
 
   </div>
-</p>
+
+
+
+</div>
 
 <% if logged_in? %>
-
-  <%= link_to "delete", @facility, method: :delete,
-                                        data: { confirm: "You sure?" } %>
-
-<%= link_to 'Edit', edit_facility_path(@facility) %> |
-<%= link_to 'Back', facilities_path %>
+  <div class  = "col-md-11 container align-right">
+    <%= link_to "delete", @facility, method: :delete,
+                                          data: { confirm: "You sure?" },
+                                          class: "btn btn-danger" %>
+  
+    <%= link_to 'Edit', edit_facility_path(@facility) %> 
+  </div>
+  <div class = "schedular container col-md-11">
+    <div id = "calendar" class = "col-md-7 col-md-offset-1"></div>
+    <div class = "col-md-4">
+      <span class="user col-md-12 topic">Book Equipment</span>
+      <div id = "edit_form"><%= render partial: 'event_form'%></div>
+    </div>
+  </div> 
+  
 <% end %>
+
+
+<script>
+  $(document).ready(function() {
+    var items = [];
+    var x = document.getElementsByTagName("section");
+    if (x){
+        var y = x[0].id;
+    }
+    $.getJSON( "/events.json", function( data ) {
+        $.each( data, function( key, val ) {
+            if (data[key].facility == y)
+            {
+                items.push(data[key]);
+                console.log(items);
+            }
+        });
+        var z = data[0].facility;
+        $('#calendar').fullCalendar({
+            header: {
+            title: 'agenda',
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+            },
+        events: items
+        })
+
+    });
+    
+});
+</script>

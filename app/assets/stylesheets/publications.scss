@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.pub-title{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.download-text{
+  margin-left:1em;
+}
+
 .publication_brief{
   border-bottom:solid;
   border-color: rgba(0,0,0,0.2);

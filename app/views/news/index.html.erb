@@ -16,7 +16,9 @@
     <span class = "detail-page-title col-md-12">News</span>
 
 <div class = "information col-md-10 col-md-offset-1">
-  
+  <% if logged_in? %>
+    <%= link_to 'New News', new_news_path, :class => "btn btn-success col-md-12" %>
+  <% end %>
   <% if @cate_array %>
     <% @cate_array.each do |array| %>
       <div class = "block">
@@ -29,9 +31,9 @@
                     <div class = "col-md-2">
                       <%= link_to image_tag(news.image.url()), news%>
                     </div>
-                    <strong><%= link_to news.title, news, {:class=>"news-title col-xs-12 col-md-10"}%></strong>
-                    <%= truncate(news.description, :length => 250) %>
-                    <%= link_to "View more", news%>
+                    <strong><%= link_to news.title, news, {:class=>"news-title"}%></strong><br>
+                    <span class = "col-xs-12 col-md-9"><%= truncate(news.description, :length => 250, :class=>"news-title") %></span>
+                    <span class = "col-md-10"><%= link_to "View more", news%></span>
                   </div>
                 <% end %>
               <% end %>
@@ -43,8 +45,6 @@
 
   <br>
 
-  <% if logged_in? %>
-    <%= link_to 'New News', new_news_path, :class => "btn btn-success" %>
-  <% end %>
+
 </div>
 

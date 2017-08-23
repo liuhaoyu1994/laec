@@ -14,6 +14,9 @@
   <div class = "term_detail col-md-10 col-md-offset-2">
     <div class = "detail-page-title">All Facilities</div>
     <div class = "detail_intro col-md-11">Laboratory for Alternative Energy Conversion (LAEC) provides analysis, testing, and material characterization services in the general area of energy systems. LAEC is equipped with a collection of state-of-the-art infrastructure and testing capabilities to assure high-quality tests in a safe environment. The following provides a list of available services. For more information please see our brochure or contact <strong>Dr. Bahrami (mbahrami@sfu.ca).</strong></div>
+        <% if current_user %>
+          <%= link_to 'New Facilities', new_facility_path, :class => "btn btn-success" %>
+        <% end %>
       <div class="projects">
         <% @cate_array.each do |array| %>
               <div class = "all_staff container col-md-12">
@@ -35,7 +38,36 @@
                        <div class = "card_title card_name2 col-md-12 col-xs-12">
                           <span><%= facility.make %>, <%= facility.model %></span><br>
                        </div>
-                       <button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#facility-<%=facility.id%>">Learn More <span>&rarr;</span></button>
+
+                      <button id="myModal-<%= facility.id %>" class="myBtn btn btn-custom">View More</button>                  
+
+                               <!-- The Modal -->
+                               <div id="myModal-<%= facility.id %>-content" class="modal">
+                               
+                                 <!-- Modal content -->
+                                 <div class="modal-content">
+                                   <span class="close">&times;</span>
+                                   <div class = "facility_show">
+                                    <div class = "shrink_image">
+                                      <%= link_to image_tag(facility.image.url()), facility.image.url %>
+                                    </div>
+                                    <div class = "container shrink_image">
+                                      <div class = "title">
+                                        <%= facility.title %>
+                                      </div>
+                                      <div class = "card_text">
+                                        <%= facility.description %>
+                                      </div>
+                                    </div>
+                                    </div>
+                                   <!-- detail -->
+                                     
+                                 </div>
+                               
+                               </div>
+                      
+                      
+                      
                       </div>
                     </div>
                     <div id="facility-<%=facility.id%>" class="collapse">
@@ -54,3 +86,39 @@
       </div>
     </div>
     <% end %>
+
+<script>
+  $(document).ready(function() {
+        var x;
+        var y;
+        $('.myBtn').click(function() {
+            x = this.id + "-content"
+            z = $('#' + x)
+            y = z;
+            y.css("display", "block");
+        });
+        
+        $('.close').click(function() {
+            y.css("display", "none");
+        });
+        
+        $(window).click(function(event) {
+            console.log(event.target.id);
+            if (event.target.id == x){
+             y.css("display", "none");
+            }
+        });
+        
+
+    });
+
+// Get the <span> element that closes the modal
+
+// When the user clicks the button, open the modal 
+
+// When the user clicks on <span> (x), close the modal
+
+
+// When the user clicks anywhere outside of the modal, close it
+
+</script>

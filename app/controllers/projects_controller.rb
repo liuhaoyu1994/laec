@@ -32,7 +32,6 @@ class ProjectsController < ApplicationController
  
   def edit
     @publications = Publication.all
-    @project = Project.find(params[:id])
     @users = User.all
     @authors = @project.authors
     @research_partners = ResearchPartner.all
@@ -48,6 +47,7 @@ class ProjectsController < ApplicationController
   end
  
   def destroy
+    @project = Project.find(params[:id])
     @project.destroy
     flash[:success] = "project deleted"
     redirect_to(projects_path)

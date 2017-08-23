@@ -2,18 +2,43 @@
 
 <% provide(:title, @user.name)%>
 <p>
-  <div class = "profile_image col-md-1 card_pic">
-    <%= link_to image_tag(@user.image.url()), @user.image.url %>
+  <div class = "col-md-10 col-md-offset-1">
+    <div class = "profile_image col-md-1 card_pic">
+      <%= link_to image_tag(@user.image.url()), @user.image.url %>
+    </div>
+    <h2><%= @user.name %>
+    <%= @user.last_name %></h2>
+    <p><%= @user.bio %></p>
   </div>
-  <%= link_to @user.name, @user %>
+  <div class = "col-md-10 col-md-offset-1">
+    <h4><strong>Related Research</strong></h4>
+    <div class = "user_articles">
+      <% @projects.each do |project| %>
+        <div class = "user_articles_list">
+          <div class = "user_articles_thumb">
+            <%= link_to image_tag(project.image.url()), project%>
+          </div>
+            <%= link_to project.title, project, {:class=>"thumb-title col-xs-12 col-md-12"} %>
+            <%= truncate(project.description, :length => 250) %>
+            <%= link_to "View more", project%>
+        </div>
+      <% end %>
+    </div>
+    <h4><strong>Related Articles</strong></h4>
+    <% @user.publications.each do |publication| %>
+      <h4 class="col-md-12"><strong><%= link_to publication.title, publication %></strong></h4>
+      <p class="project-description col-md-12"><%= publication.descryption%></span>
+    <% end %>
+  </div>
 </p>
 
 <% if logged_in? %>
-
-    <%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-default" %>
-    <%= link_to 'Back', users_path, :class => "btn btn-default" %></br>
-    <%= link_to "Create New Project", newproject_path, :class => "btn btn-default" %>
-    <%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-danger" %>
+    <div class = "container col-md-10 col-md-offset-1">
+      <%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-default" %>
+      <%= link_to 'Back', "/about", :class => "btn btn-default" %></br>
+      <%= link_to "Create New Project", newproject_path, :class => "btn btn-default" %>
+      <%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-danger" %>
+    </div>
          <div class = "user_articles">
           <% @projects.each do |project| %>
             <div class = "user_articles_list">

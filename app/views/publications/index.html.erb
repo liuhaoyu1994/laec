@@ -24,7 +24,12 @@
             <% @publications.each do |publication| %>
               <% if publication.time == array %>
                 <div class = "publication_brief">
-                    <p><%= link_to publication.title, publication.file.url%></p>
+                  <% if current_user %>
+                    <p><%= link_to publication.title, edit_publication_path(publication) %></p>
+                  <% else %>
+                    <p><%= link_to publication.title, publication_path(publication) %></p>
+                  <% end %>
+
                   <%= truncate(publication.descryption, :length => 250) %>
                 </div>
               <% end %>  

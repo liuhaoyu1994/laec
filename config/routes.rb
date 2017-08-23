@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get 'partner_relations/create'
 
   get 'partner_relations/destroy'
@@ -41,7 +42,7 @@ Rails.application.routes.draw do
 
   get 'publications/show'
 
-  get 'publication' , to: 'publications#index'
+  get 'publications/index' 
 
   get 'publications/edit'
 

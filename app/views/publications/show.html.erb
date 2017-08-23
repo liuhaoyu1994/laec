@@ -1,8 +1,23 @@
 <div class = "container-fluid project-detail" id="project-<%= @publication.id %>">
-  
-  <span class="title col-md-12"><%= @publication.title%></span>
-  <div class="col-md-1"></div>
-    
-    <%= link_to @publication.title, @publication.file.url()%>
-  <span class="project-description col-md-12"><%= @publication.descryption  %></span>
+  <div class = "col-md-10 col-md-offset-1">
+    <span class="pub-title col-md-12"><%= @publication.title%></span>
+    <%= link_to "download this file", @publication.file.url(), :class => "download-text"%>
+    <span class="project-description col-md-12"><%= @publication.descryption  %></span>
+        <span class="user col-md-10 topic col-xs-12">Authors:</span>
+        <div class = "users-icon container">
+          <% @publication.users.each do |user| %>
+              <div class = "users-selection col-md-2 col-xs-6">
+                <div class = " container card_pic6 col-md-6 col-xs-5">
+                  <%= link_to image_tag(user.image.url()), user %>
+                 </div> 
+                 <div class = " container card_pic6 col-md-6 col-xs-5">
+                   <%= link_to user.name, user %>
+                   <%= link_to user.last_name, user %>
+                 </div> 
+
+              </div>
+          <% end %>
+      
+    </div>
+  </div>
 </div>

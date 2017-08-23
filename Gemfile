@@ -14,6 +14,10 @@ gem "paperclip", "~> 5.0.0"
 gem 'simple_form'
 gem 'carrierwave'
 gem 'twitter'
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
+
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.12'

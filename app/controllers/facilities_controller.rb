@@ -4,6 +4,8 @@ class FacilitiesController < ApplicationController
   def show
     @facility = Facility.find(params[:id])
     @users = @facility.users.all
+    @events = Event.all
+    @event = Event.new
   end
 
 

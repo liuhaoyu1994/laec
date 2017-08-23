@@ -23,14 +23,14 @@
       <%= f.text_field :tel, class: 'form-control' %>
             
        <%= f.label :bio %>
-      <%= f.text_field :bio, class: 'form-control' %>
+      <%= f.text_area :bio, class: 'form-control' %>
             
             
       <%= f.file_field :image %>
 
       <%= link_to "delete", @user, method: :delete,
                                         data: { confirm: "You sure?" } %>
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.submit "Update my account", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

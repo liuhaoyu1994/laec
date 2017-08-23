@@ -1,15 +1,19 @@
-<%= simple_form_for(@research_partner) do |f| %>
-  <%= f.error_notification %>
-
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
-
-    <%= f.label :description %>
-    <%= f.text_field :description, class: 'form-control' %>
+<div class = "col-md-12">
+  <div class = "col-md-10 col-md-offset-1">
+    <%= simple_form_for(@research_partner) do |f| %>
+      <%= f.error_notification %>
     
-    <%= f.file_field :image %>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+        <%= f.label :Name %>
+        <%= f.text_field :title, class: 'form-control' %>
+    
+        <%= f.label :Link %>
+        <%= f.text_field :description, class: 'form-control' %>
+        
+        <%= f.file_field :image %>
+    
+      <div class="form-actions">
+        <%= f.button :submit, :class => "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>                    
+</div>
