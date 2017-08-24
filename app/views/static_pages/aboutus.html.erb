@@ -84,9 +84,10 @@
            
              <!-- Modal content -->
              <div class="modal-content">
-               <span class="close">&times;</span>
                <div class = "non-float user_articles container">
-                  <div class = "col-md-2 bio_image">
+                                <span class="close">&times;</span>
+
+                  <div class = "col-md-2 col-sm-12 col-xs-12 bio_image container">
                     <%= link_to image_tag(user.image.url()), user.image.url %>
                   </div>
                   <h3 class = "bio-name col-md-9 col-xs-12"><strong><%= user.name %>
@@ -97,14 +98,14 @@
                       <span class="bio-bio col-md-9 col-xs-12"> <%= user.email %></span>
                      <span class="bio-bio col-md-9 col-xs-12"> <%= user.tel %></span>
                   </span>
-                  <span class = "bio-bio container col-md-9"><%= user.bio %></span>
+                  <span class = "bio-bio container col-md-9 col-xs-12"><%= user.bio %></span>
                 </div>
                 <div>
                   <div class = "user_articles container col-md-10">
                     <h4><strong>Related Research</strong></h4>
-                    <div class = "articles-list container">
+                    <div class = "articles-list container col-md-12 col-xs-12">
                         <% user.articles.each do |project| %>
-                          <div class = "user_articles_list col-md-3">
+                          <div class = "user_articles_list col-md-3 col-sm-3 col-xs-12">
                             <div class = "user_articles_thumb">
                               <%= link_to image_tag(project.image.url()), project%>
                             </div>
@@ -115,7 +116,7 @@
                         <% end %>
                     </div>
                   </div>
-                  <div class = "user_articles container">
+                  <div class = "user_articles container col-md-12 col-xs-12">
                    <h4><strong>Related Articles</strong></h4>
                    <% user.publications.each do |publication| %>
                      <h4><strong><%= link_to publication.title, publication %></strong></h4>

@@ -29,9 +29,13 @@
 /* The Close Button */
 .close {
     color: #aaaaaa;
-    float: right;
     font-size: 5em !important; 
     font-weight: bold;
+    float:none !important;
+}
+
+.user_articles{
+  float:none !important;
 }
 
 .close:hover,
