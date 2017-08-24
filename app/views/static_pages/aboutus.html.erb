@@ -89,23 +89,31 @@
                   <div class = "col-md-2 bio_image">
                     <%= link_to image_tag(user.image.url()), user.image.url %>
                   </div>
-                  <h3 class = "bio-name"><strong><%= user.name %>
-                  <%= user.last_name %></strong></h3>
+                  <h3 class = "bio-name col-md-9 col-xs-12"><strong><%= user.name %>
+                  <%= user.last_name %></strong>
+                  </h3>
+                  <span>
+                      <span class="bio-bio col-md-9 col-xs-12"> <%= user.title %> </span>
+                      <span class="bio-bio col-md-9 col-xs-12"> <%= user.email %></span>
+                     <span class="bio-bio col-md-9 col-xs-12"> <%= user.tel %></span>
+                  </span>
                   <span class = "bio-bio container col-md-9"><%= user.bio %></span>
                 </div>
                 <div>
                   <div class = "user_articles container col-md-10">
                     <h4><strong>Related Research</strong></h4>
-                    <% user.articles.each do |project| %>
-                      <div class = "user_articles_list">
-                        <div class = "user_articles_thumb">
-                          <%= link_to image_tag(project.image.url()), project%>
-                        </div>
-                          <%= link_to project.title, project, {:class=>"thumb-title col-xs-12 col-md-12"} %>
-                          <span><%= truncate(project.description, :length => 200) %></span>
-                          <%= link_to "View more", project%>
-                      </div>
-                    <% end %>
+                    <div class = "articles-list container">
+                        <% user.articles.each do |project| %>
+                          <div class = "user_articles_list col-md-3">
+                            <div class = "user_articles_thumb">
+                              <%= link_to image_tag(project.image.url()), project%>
+                            </div>
+                              <%= link_to project.title, project, {:class=>"thumb-title col-xs-12 col-md-12"} %>
+                              <span><%= truncate(project.description, :length => 200) %></span>
+                              <%= link_to "View more", project%>
+                          </div>
+                        <% end %>
+                    </div>
                   </div>
                   <div class = "user_articles container">
                    <h4><strong>Related Articles</strong></h4>
@@ -321,16 +329,18 @@
                 <div>
                   <div class = "user_articles container col-md-10">
                     <h4><strong>Related Research</strong></h4>
-                    <% user.articles.each do |project| %>
-                      <div class = "user_articles_list">
-                        <div class = "user_articles_thumb">
-                          <%= link_to image_tag(project.image.url()), project%>
-                        </div>
-                          <%= link_to project.title, project, {:class=>"thumb-title col-xs-12 col-md-12"} %>
-                          <span><%= truncate(project.description, :length => 200) %></span>
-                          <%= link_to "View more", project%>
-                      </div>
-                    <% end %>
+                    <div class = "container">
+                        <% user.articles.each do |project| %>
+                          <div class = "user_articles_list col-md-4">
+                            <div class = "user_articles_thumb">
+                              <%= link_to image_tag(project.image.url()), project%>
+                            </div>
+                              <%= link_to project.title, project, {:class=>"thumb-title col-xs-12 col-md-12"} %>
+                              <span><%= truncate(project.description, :length => 200) %></span>
+                              <%= link_to "View more", project%>
+                          </div>
+                        <% end %>
+                    </div>
                   </div>
                   <div class = "user_articles container">
                    <h4><strong>Related Articles</strong></h4>

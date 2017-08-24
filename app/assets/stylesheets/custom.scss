@@ -14,15 +14,19 @@
   width:100%;
   display:block;
   height:100%;
+  padding:0;
 }
 
-.bio_image{
-  margin-right:1em;
-}
+
 
 .user_articles img{
   margin:1em;
   width:100%;
+}
+
+.bio_image{
+  margin:0;
+
 }
 
 .card_text .bio-bio {
@@ -32,6 +36,7 @@
 
 .non-float{
   float:none;
+  padding:0;
 }
 
 .simple_form .optional{

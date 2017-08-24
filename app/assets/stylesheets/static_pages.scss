@@ -30,7 +30,7 @@
 .close {
     color: #aaaaaa;
     float: right;
-    font-size: 10em;
+    font-size: 5em !important; 
     font-weight: bold;
 }
 
@@ -438,6 +438,8 @@ position:relative;
 .card_text span {
   font-size:0.8em;
 }
+
+
 
 .card_text a {
   font-size:0.8em;
